@@ -1,2 +1,2 @@
 # workup
-Divide and rule
+Divide and rule.
