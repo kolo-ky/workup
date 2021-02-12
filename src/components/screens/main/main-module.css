@@ -1,0 +1,6 @@
+.taskBoard {
+  width: 100%;
+  height: calc(100vh - 125px);
+  display: flex;
+  justify-content: space-between;
+}

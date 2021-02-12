@@ -1,0 +1,68 @@
+.addTask {
+  align-self: start;
+  margin-bottom: 32px;
+  padding: 25px 21px;
+
+  background-color: #ffffff;
+  border-radius: 16px;
+}
+
+.addTaskForm {
+  display: flex;
+  align-items: center;
+}
+
+.addTaskInputWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.addTask label {
+  margin-bottom: 15px;
+
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1;
+
+  user-select: none;
+}
+
+.addTaskForm input {
+  width: 211px;
+  margin-right: 17px;
+  padding: 15px 11px;
+  border: 1px solid #d6d6d6;
+  border-radius: 8px;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+  color: #333333;
+
+  transition: 0.155s ease-in-out;
+
+}
+
+
+.addTaskForm input:focus,
+.addTaskForm input:active {
+  outline: none;
+  border-color: #82b6ff;
+}
+
+.addTaskForm input::placeholder {
+  font-weight: 400;
+  color: #d0d0d0;
+}
+
+.addTaskForm input:focus::placeholder {
+  opacity: 0;
+}
+
+.addTaskButton {
+  align-self: flex-end;
+
+  margin-bottom: 1px;
+
+  background-color: #2f80ed;
+}

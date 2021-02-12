@@ -1,14 +1,24 @@
 import React from 'react';
-import classnames from 'classnames';
+import {BrowserRouter, Route, Switch} from "react-router-dom";
 
-// styles
-import style from './app.module.css';
+//components
+import Main from '../../components/screens/main/main';
+import Login from '../../components/screens/login/login';
+import NotFound from '../../components/screens/not-found/not-found';
 
 const App = () => {
   return (
-    <main className={classnames(style.mainContainer)}>
-      Hello, i'm working!
-    </main>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" exact component={Main} />
+      </Switch>
+      <Switch>
+        <Route path="/login" exact component={Login} />
+      </Switch>
+      <Switch>
+        <Route component={NotFound}/>
+      </Switch>
+    </BrowserRouter>
   );
 };
 
