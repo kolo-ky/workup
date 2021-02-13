@@ -1,46 +1,18 @@
 import React from "react";
 
-const Backlog = () => {
+// styles
+import style from '../../../assets/common-styles/comon.style.css';
+import backlogStyle from './backlog.module.css';
+import classnames from 'classnames';
+
+// components
+import TaskList from '../../task-list/task-list';
+
+const Backlog = ({tasks}) => {
   return (
-    <article className="taskboard__group taskboard__group--backlog">
-      <h3 className="taskboard__group-heading taskboard__group-heading--backlog">Бэклог</h3>
-      <div className="taskboard__list">
-        <div className="taskboard__item task task--active">
-          <div className="task__body">
-            <p className="task__view">Название первой задачи</p>
-            <input className="task__input" type="text" value="Название первой задачи" />
-          </div>
-          <button className="task__edit" type="button" aria-label="Изменить"></button>
-        </div>
-        <div className="taskboard__item task">
-          <div className="task__body">
-            <p className="task__view">Название первой задачи</p>
-            <input className="task__input" type="text" value="Название первой задачи" />
-          </div>
-          <button className="task__edit" type="button" aria-label="Изменить"></button>
-        </div>
-        <div className="taskboard__item task">
-          <div className="task__body">
-            <p className="task__view">Название первой задачи</p>
-            <input className="task__input" type="text" value="Название первой задачи" />
-          </div>
-          <button className="task__edit" type="button" aria-label="Изменить"></button>
-        </div>
-        <div className="taskboard__item task">
-          <div className="task__body">
-            <p className="task__view">Название первой задачи</p>
-            <input className="task__input" type="text" value="Название первой задачи" />
-          </div>
-          <button className="task__edit" type="button" aria-label="Изменить"></button>
-        </div>
-        <div className="taskboard__item task">
-          <div className="task__body">
-            <p className="task__view">Название первой задачи</p>
-            <input className="task__input" type="text" value="Название первой задачи" />
-          </div>
-          <button className="task__edit" type="button" aria-label="Изменить"></button>
-        </div>
-      </div>
+    <article className={classnames(style.taskBoardGroup, backlogStyle.taskBoardGroupBacklog)}>
+      <h3 className={classnames(style.taskBoardGroupHeading, backlogStyle.taskBoardGroupHeadingBacklog)}>Бэклог</h3>
+      <TaskList tasks={tasks}/>
     </article>
   );
 };

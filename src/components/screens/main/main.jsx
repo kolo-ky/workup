@@ -14,15 +14,18 @@ import Done from '../../../components/boards/done/done';
 import Trash from '../../../components/boards/trash/trash';
 import AddTask from "../../add-task/add-task";
 
+// mocha
+import tasks from '../../../mocha/tasks';
+
 const Main = () => {
   return (
     <Fragment>
       <AddTask />
       <section className={classnames(style.taskBoard)}>
-        <Backlog />
-        <Process />
-        <Done />
-        <Trash />
+        <Backlog tasks={tasks}/>
+        <Process tasks={tasks}/>
+        <Done tasks={tasks}/>
+        <Trash tasks={tasks}/>
       </section>
     </Fragment>
   );

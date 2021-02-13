@@ -1,42 +1,21 @@
 import React from "react";
 
-const Process = () => {
+// styles
+import style from '../../../assets/common-styles/comon.style.css';
+import processStyle from './process.module.css';
+import classnames from 'classnames';
+
+// components
+import TaskList from "../../task-list/task-list";
+import TaskEmpty from "../../task-empty/task-empty";
+
+const Process = ({tasks}) => {
   return (
-    <article className="taskboard__group taskboard__group--processing">
-      <h3 className="taskboard__group-heading taskboard__group-heading--processing">В процессе</h3>
-      <div className="taskboard__list taskboard__list--sorted">
-        <div className="taskboard__item task task--empty">
-          <p>Перетащите карточку</p>
-        </div>
-        <div className="taskboard__item task task--processing task--active">
-          <div className="task__body">
-            <p className="task__view">Название первой задачи</p>
-            <input className="task__input" type="text" value="Название первой задачи" />
-          </div>
-          <button className="task__edit" type="button" aria-label="Изменить"></button>
-        </div>
-        <div className="taskboard__item task task--processing">
-          <div className="task__body">
-            <p className="task__view">Название первой задачи</p>
-            <input className="task__input" type="text" value="Название первой задачи" />
-          </div>
-          <button className="task__edit" type="button" aria-label="Изменить"></button>
-        </div>
-        <div className="taskboard__item task task--processing">
-          <div className="task__body">
-            <p className="task__view">Название первой задачи</p>
-            <input className="task__input" type="text" value="Название первой задачи" />
-          </div>
-          <button className="task__edit" type="button" aria-label="Изменить"></button>
-        </div>
-      </div>
-      <div className="taskboard__item task task--processing">
-        <div className="task__body">
-          <p className="task__view">Название первой задачи</p>
-          <input className="task__input" type="text" value="Название первой задачи" />
-        </div>
-        <button className="task__edit" type="button" aria-label="Изменить"></button>
-      </div>
+    <article className={classnames(style.taskBoardGroup, processStyle.taskBoardGroupProcessing)}>
+      <h3 className={classnames(style.taskBoardGroupHeading, processStyle.taskBoardGroupHeadingProcessing)}>В процессе</h3>
+      <TaskList tasks={tasks}>
+        <TaskEmpty />
+      </TaskList>
     </article>
   );
 };

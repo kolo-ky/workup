@@ -1,3 +1,5 @@
+/* button */
+
 .button {
   display: flex;
   align-items: center;
@@ -52,4 +54,207 @@
 .button span {
   position: relative;
   top: 1px;
+}
+
+/* taskboard */
+
+.taskBoardGroup {
+  width: calc((100% - (40px * 3)) / 4);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.taskBoardGroupHeading {
+  align-self: flex-start;
+  margin-bottom: 16px;
+  padding: 10px 18px;
+  padding-top: 12px;
+
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1;
+  border-radius: 8px;
+  cursor: default;
+  user-select: none;
+}
+
+.taskBoardList {
+  margin: 0;
+  padding: 0;
+   max-height: calc(100% - 56px);
+  list-style: none;
+}
+
+.taskBoardItem {
+  margin-bottom: 8px;
+}
+
+/* task */
+.task {
+  position: relative;
+  width: 100%;
+  padding: 16px 14px;
+  display: flex;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+
+  border-left: 6px solid #e3e3e3;
+  border-radius: 8px;
+  background-color: #ffffff;
+
+  transition: 0.155s ease-in-out;
+}
+
+.taskProcessing {
+  border-color: #d6e7ff;
+}
+
+.taskDone {
+  border-color: #d7f9e0;
+}
+
+.taskBasket {
+  border-color: #fbe3e3;
+}
+
+.task:hover {
+  cursor: pointer;
+}
+
+.task p {
+  flex-grow: 1;
+  position: relative;
+  z-index: 2;
+  word-break: break-word;
+}
+
+.task::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -6px;
+  right: 0;
+  content: "";
+  border: 0 solid #d6d6d6;
+  border-radius: 8px;
+  transition: 0.155s ease-in-out;
+  pointer-events: none;
+}
+
+.task:hover::after,
+.taskActive::after {
+  border-width: 1px;
+}
+
+.taskEmpty::after {
+  display: none;
+}
+
+.task:hover .taskEdit {
+  opacity: 0.7;
+}
+
+.task:hover .taskEdit:hover {
+  opacity: 1;
+}
+
+.taskActive .taskEdit,
+.taskActive:hover .taskEdit {
+  opacity: 1;
+  background-image: url("../img/edit-active.svg");
+}
+
+.taskDragged {
+  /*filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.1));*/
+  padding: 16px 14px;
+  color: #d0d0d0;
+  border: 1px dashed #d0d0d0;
+  background-color: transparent;
+}
+
+.taskDragged::after {
+  display: none;
+}
+
+.taskEmpty {
+  padding: 15px 19px;
+  color: #d0d0d0;
+  border: 1px dashed #d0d0d0;
+  background-color: transparent;
+}
+
+.taskEmpty:hover {
+  cursor: default;
+}
+
+.taskBody {
+  flex: 1;
+}
+
+.taskEdit {
+  position: relative;
+  z-index: 2;
+  margin-left: 8px;
+  flex-shrink: 0;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: 0.155s ease-in-out;
+  background-image: url("../img/edit.svg");
+  opacity: 0;
+}
+
+.taskEdit:active,
+.taskEdit:focus {
+  outline: none;
+}
+
+.taskEmpty-trash {
+  margin-bottom: 8px;
+}
+
+.hiddenBlock {
+  display: none;
+}
+
+.taskInput {
+  display: none;
+  height: 24px;
+  width: 100%;
+  padding: 0 4px;
+  border-radius: 4px;
+  border: 1px solid #d6d6d6;
+  color: #333333;
+  transition: 0.155s ease-in-out;
+}
+
+.taskInput:focus,
+.taskInput:active {
+  outline: none;
+  border-color: #82b6ff;
+}
+
+.taskView {
+  padding: 2px 0;
+}
+
+.taskActive .taskView {
+  display: none;
+}
+
+.taskActive .taskInput {
+  display: block;
+}
+
+.taskBoardButton {
+  margin-top: 8px;
+  width: 100%;
+  padding: 0;
+  justify-content: center;
 }
