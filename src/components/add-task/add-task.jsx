@@ -2,7 +2,7 @@ import React from "react";
 
 // style
 import style from './add-task.module.css';
-import buttonStyle from '../../assets/common-styles/button.css';
+import buttonStyle from '../../assets/common-styles/comon.style.css';
 import classnames from 'classnames';
 
 const AddTask = () => {
