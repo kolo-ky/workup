@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 // styles
 import style from './user.module.css';
@@ -13,10 +14,12 @@ const User = () => {
       <li className={classnames(style.userMenu)}>
         <ul className={classnames(style.menu)}>
           <li className={classnames(style.menuItem)}>
-            Профиль
+            <Link to="/profile">
+              Профиль
+            </Link>
           </li>
           <li className={classnames(style.menuItem)}>
-            Выйти
+            <a href="/">Выйти</a>
           </li>
         </ul>
       </li>

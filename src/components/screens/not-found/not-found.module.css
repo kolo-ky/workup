@@ -1,0 +1,27 @@
+.notFoundSection {
+  width: 350px;
+}
+
+.notFoundTitle {
+  display: block;
+  margin-bottom: 15px;
+  color: #2f80ed;
+}
+
+.notFoundCard {
+  background-color: #ffffff;
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.notFoundSubTitle {
+  display: inline-block;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.notFoundCard a {
+  color: #2f80ed;
+  text-decoration: underline;
+}

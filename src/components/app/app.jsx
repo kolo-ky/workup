@@ -4,6 +4,7 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 //components
 import Main from '../../components/screens/main/main';
 import Login from '../../components/screens/login/login';
+import Profile from "../screens/pfofile/profile";
 import NotFound from '../../components/screens/not-found/not-found';
 
 const App = () => {
@@ -14,6 +15,9 @@ const App = () => {
       </Switch>
       <Switch>
         <Route path="/login" exact component={Login} />
+      </Switch>
+      <Switch>
+        <Route path="/profile" exact component={Profile} />
       </Switch>
       <Switch>
         <Route component={NotFound}/>

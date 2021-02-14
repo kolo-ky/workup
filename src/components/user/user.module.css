@@ -47,6 +47,10 @@
   cursor: pointer;
 }
 
+.menuItem a {
+  display: block;
+}
+
 .menuItem:hover {
   color: #2f80ed;
 }
