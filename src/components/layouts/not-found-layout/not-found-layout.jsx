@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 // styles
 import style from './not-found-layout.module.css';
@@ -10,6 +11,10 @@ const NotFoundLayout = ({children}) => {
       {children}
     </main>
   );
+};
+
+NotFoundLayout.propTypes = {
+  children: PropTypes.object
 };
 
 export default NotFoundLayout;

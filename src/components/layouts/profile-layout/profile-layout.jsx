@@ -1,4 +1,5 @@
 import React, {Fragment} from 'react';
+import PropTypes from 'prop-types';
 
 //components
 import ProfileHeader from '../../profile-header/profile-header';
@@ -18,6 +19,10 @@ const ProfileLayout = ({children}) => {
       </main>
     </Fragment>
   );
+};
+
+ProfileLayout.propTypes = {
+  children: PropTypes.object
 };
 
 export default ProfileLayout;

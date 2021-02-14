@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
 // styles
@@ -33,6 +34,10 @@ const User = ({showUserMenu}) => {
       }
     </ul>
   );
+};
+
+User.propTypes = {
+  showUserMenu: PropTypes.bool.isRequired
 };
 
 export default User;

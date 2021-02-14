@@ -1,8 +1,12 @@
 import React, {useState} from 'react';
+import PropTypes from 'prop-types';
 
 // styles
 import classnames from "classnames";
 import style from "../../assets/common-styles/comon.style.css";
+
+// types
+import taskType from '../../types/task';
 
 const TASK_COLOR_BY_BOARD_ID = {
   0: 'taskBacklog',
@@ -56,6 +60,10 @@ const TaskItem = ({task}) => {
       />
     </div>
   );
+};
+
+TaskItem.propTypes = {
+  task: PropTypes.shape(taskType)
 };
 
 export default TaskItem;

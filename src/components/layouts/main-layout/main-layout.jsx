@@ -1,4 +1,5 @@
 import React, {Fragment} from "react";
+import PropTypes from 'prop-types';
 
 //components
 import Header from '../../header/header';
@@ -18,6 +19,10 @@ const MainLayout = ({children}) => {
       </main>
     </Fragment>
   );
+};
+
+MainLayout.propTypes = {
+  children: PropTypes.object
 };
 
 export default MainLayout;

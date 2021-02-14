@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 // styles
 import style from '../../../assets/common-styles/comon.style.css';
@@ -8,6 +9,9 @@ import classnames from 'classnames';
 // components
 import TaskList from "../../task-list/task-list";
 import TrashEmpty from "../../trash-empty/trash-empty";
+
+// types
+import task from "../../../types/task";
 
 const Trash = ({tasks, title}) => {
   return (
@@ -33,6 +37,11 @@ const Trash = ({tasks, title}) => {
       }
     </article>
   );
+};
+
+Trash.propTypes = {
+  tasks: PropTypes.arrayOf(PropTypes.shape(task)),
+  title: PropTypes.string.isRequired
 };
 
 export default Trash;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // styles
 import classnames from "classnames";
@@ -10,6 +11,10 @@ const LoginLayout = ({children}) => {
       {children}
     </main>
   );
+};
+
+LoginLayout.propTypes = {
+  children: PropTypes.object
 };
 
 export default LoginLayout;
