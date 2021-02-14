@@ -1,0 +1,80 @@
+.loginSection {
+  width: 350px;
+}
+
+.loginTitle {
+  display: block;
+  margin-bottom: 15px;
+  color: #2f80ed;
+}
+
+.loginForm {
+  background-color: #ffffff;
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.loginForm label {
+  display: inline-block;
+  margin-bottom: 5px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1;
+  margin-right: 10px;
+  user-select: none;
+}
+
+.loginForm input {
+  width: 100%;
+  margin-right: 17px;
+  padding: 5px 5px;
+  border: 1px solid #d6d6d6;
+  border-radius: 8px;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+  color: #333333;
+  margin-bottom: 15px;
+  transition: 0.155s ease-in-out;
+
+}
+
+.loginForm input:focus,
+.loginForm input:active {
+  outline: none;
+  border-color: #82b6ff;
+}
+
+.loginForm input::placeholder {
+  font-weight: 400;
+  color: #d0d0d0;
+}
+
+.loginForm input:focus::placeholder {
+  opacity: 0;
+}
+
+.loginButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  background-color: #2f80ed;
+  color: #ffffff;
+  border: none;
+  padding: 10px 15px 8px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  outline: none;
+}
+
+.loginButton:focus {
+  opacity: 0.8;
+}
+
+.authLink {
+  text-decoration: none;
+  color: #2f80ed;
+}

@@ -1,6 +1,6 @@
 import React, {Fragment} from "react";
 
-// layout
+// hocs
 import {WithMainLayout} from "../../../hocs/with-main-layout";
 
 // style
