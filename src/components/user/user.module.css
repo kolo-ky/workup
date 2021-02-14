@@ -1,0 +1,53 @@
+.user, .menu {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.userAvatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background-color: #d7f9e0;
+  color: #65b670;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 24px;
+  padding-top: 5px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.userMenu {
+  display: block;
+  position: relative;
+  color: #6a6a6a;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 200px;
+  height: 80px;
+  padding: 10px;
+  background-color: #ffffff;
+  position: absolute;
+  top: 10px;
+  right: 0;
+  border-radius: 8px;
+  -webkit-box-shadow: -1px 3px 8px 0px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: -1px 3px 8px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: -1px 3px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+.menuItem {
+  cursor: pointer;
+}
+
+.menuItem:hover {
+  color: #2f80ed;
+}
+
