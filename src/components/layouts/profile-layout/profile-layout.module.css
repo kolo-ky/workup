@@ -1,0 +1,14 @@
+.profileLayoutBoardMain {
+  padding: 48px 0;
+  background-color: #eef4fb;
+  min-height: calc(100vh - 80px);
+}
+
+.profileLayoutBoardInner {
+  width: 1200px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+  margin: 0 auto;
+}

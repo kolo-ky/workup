@@ -1,27 +1,18 @@
 import React from 'react';
-import {Link, useLocation} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 // styles
 import style from './user.module.css';
 import classnames from 'classnames';
 
-// settings
-import settings from "./settings";
-
-const User = () => {
-  const {pathname} = useLocation();
-
-  const isHideRoute = () => {
-    return !pathname.includes(settings.hideForRoute);
-  };
-
+const User = ({showUserMenu}) => {
   return (
     <ul className={classnames(style.user)}>
       <li className={classnames(style.userAvatar)}>
         A
       </li>
       {
-        isHideRoute()
+        showUserMenu
         ?
             <li className={classnames(style.userMenu)}>
               <ul className={classnames(style.menu)}>

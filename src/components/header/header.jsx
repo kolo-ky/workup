@@ -12,7 +12,7 @@ const Header = () => {
     <header className={style.boardHeader}>
       <div className={style.boardInner}>
         <h1><Link to="/">WorkUp</Link></h1>
-        <User />
+        <User showUserMenu={true}/>
       </div>
     </header>
   );
