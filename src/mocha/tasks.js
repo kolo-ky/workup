@@ -8,13 +8,13 @@ export default [
   {
     id: 1,
     title: 'Задача номер 2',
-    boardId: 0,
+    boardId: 1,
     statusId: 0
   },
   {
     id: 2,
     title: 'Задача номер 3',
-    boardId: 0,
+    boardId: 1,
     statusId: 0
   }
 ];

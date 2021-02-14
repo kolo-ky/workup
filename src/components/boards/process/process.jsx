@@ -9,10 +9,10 @@ import classnames from 'classnames';
 import TaskList from "../../task-list/task-list";
 import TaskEmpty from "../../task-empty/task-empty";
 
-const Process = ({tasks}) => {
+const Process = ({tasks, title}) => {
   return (
     <article className={classnames(style.taskBoardGroup, processStyle.taskBoardGroupProcessing)}>
-      <h3 className={classnames(style.taskBoardGroupHeading, processStyle.taskBoardGroupHeadingProcessing)}>В процессе</h3>
+      <h3 className={classnames(style.taskBoardGroupHeading, processStyle.taskBoardGroupHeadingProcessing)}>{title}</h3>
       <TaskList tasks={tasks}>
         <TaskEmpty />
       </TaskList>

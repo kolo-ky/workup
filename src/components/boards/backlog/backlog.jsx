@@ -8,10 +8,10 @@ import classnames from 'classnames';
 // components
 import TaskList from '../../task-list/task-list';
 
-const Backlog = ({tasks}) => {
+const Backlog = ({tasks, title}) => {
   return (
     <article className={classnames(style.taskBoardGroup, backlogStyle.taskBoardGroupBacklog)}>
-      <h3 className={classnames(style.taskBoardGroupHeading, backlogStyle.taskBoardGroupHeadingBacklog)}>Бэклог</h3>
+      <h3 className={classnames(style.taskBoardGroupHeading, backlogStyle.taskBoardGroupHeadingBacklog)}>{title}</h3>
       <TaskList tasks={tasks}/>
     </article>
   );

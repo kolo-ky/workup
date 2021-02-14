@@ -9,10 +9,10 @@ import classnames from 'classnames';
 import TaskList from "../../task-list/task-list";
 import TrashEmpty from "../../trash-empty/trash-empty";
 
-const Trash = ({tasks}) => {
+const Trash = ({tasks, title}) => {
   return (
     <article className={classnames(style.taskBoardGroup, trashStyle.taskBoardGroupBasket)}>
-      <h3 className={classnames(style.taskBoardGroupHeading, trashStyle.taskBoardGroupHeadingBasket)}>Корзина</h3>
+      <h3 className={classnames(style.taskBoardGroupHeading, trashStyle.taskBoardGroupHeadingBasket)}>{title}</h3>
       <TaskList tasks={tasks}>
         <TrashEmpty />
       </TaskList>
