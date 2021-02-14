@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 // styles
 import style from './header.module.css';
@@ -10,7 +11,7 @@ const Header = () => {
   return (
     <header className={style.boardHeader}>
       <div className={style.boardInner}>
-        <h1>WorkUp</h1>
+        <h1><Link to="/">WorkUp</Link></h1>
         <User />
       </div>
     </header>

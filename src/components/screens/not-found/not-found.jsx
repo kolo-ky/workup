@@ -13,10 +13,10 @@ const NotFound = () => {
     <section className={classnames(style.notFoundSection)}>
       <h1 className={classnames(style.notFoundTitle)}>404</h1>
       <article className={classnames(style.notFoundCard)}>
-        <h2 className={classnames(style.notFoundSubTitle)}>Упс! Что вы наделали!</h2>
+        <h2 className={classnames(style.notFoundSubTitle)}>Упс! Что вы наделали?!</h2>
         <p>
-          Мы никому не скажем.
-          Срочно возвращайтесь <Link to="/">на главную страницу</Link>, пока это кто-нибудь не увидел.
+          Но мы никому не скажем.<br/>
+          Срочно возвращайтесь <Link to="/">на главную страницу</Link>, пока этого никто не увидел.
         </p>
       </article>
     </section>
