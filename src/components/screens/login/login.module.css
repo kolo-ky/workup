@@ -13,6 +13,7 @@
   box-sizing: border-box;
   padding: 20px;
   border-radius: 8px;
+  margin-bottom: 15px;
 }
 
 .loginForm label {
@@ -27,14 +28,15 @@
 
 .loginForm input {
   width: 100%;
+  height: 35px;
   margin-right: 17px;
-  padding: 5px 5px;
+  padding: 8px 5px 5px 5px;
   border: 1px solid #d6d6d6;
   border-radius: 8px;
 
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 0.3;
   color: #333333;
   margin-bottom: 15px;
   transition: 0.155s ease-in-out;
@@ -60,7 +62,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 15px;
   background-color: #2f80ed;
   color: #ffffff;
   border: none;
@@ -77,4 +78,8 @@
 .authLink {
   text-decoration: none;
   color: #2f80ed;
+}
+
+.authLink:hover {
+  text-decoration: underline;
 }

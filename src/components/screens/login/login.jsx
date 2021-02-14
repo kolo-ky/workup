@@ -22,10 +22,10 @@ const Login = () => {
         <button className={classnames(style.loginButton)} type="submit">
           <span>Войти</span>
         </button>
-        <p>
-          <a className={classnames(style.authLink)} href="/auth">В первый раз? Зарегистрироваться</a>
-        </p>
       </form>
+      <p>
+        <a className={classnames(style.authLink)} href="/auth">В первый раз? Зарегистрироваться</a>
+      </p>
     </section>
   );
 };
