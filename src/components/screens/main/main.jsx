@@ -1,7 +1,7 @@
 import React, {Fragment, useState} from "react";
 
 // hocs
-import {WithMainLayout} from "../../../hocs/with-main-layout";
+import {WithMainLayout} from "../../hocs/with-main-layout";
 
 // style
 import style from './main-module.css';

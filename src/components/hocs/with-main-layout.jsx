@@ -1,5 +1,5 @@
 import React from "react";
-import MainLayout from "../components/layouts/main-layout/main-layout";
+import MainLayout from "../layouts/main-layout/main-layout";
 
 export const WithMainLayout = Component => {
   return props => (

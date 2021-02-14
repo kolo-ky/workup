@@ -1,7 +1,7 @@
 import React from "react";
 
 // hocs
-import {WithLoginLayout} from '../../../hocs/with-login-layout';
+import {WithLoginLayout} from '../../hocs/with-login-layout';
 
 // styles
 import style from './login.module.css';
