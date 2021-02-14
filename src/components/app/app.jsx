@@ -12,15 +12,9 @@ const App = () => {
     <BrowserRouter>
       <Switch>
         <Route path="/" exact component={Main} />
-      </Switch>
-      <Switch>
         <Route path="/login" exact component={Login} />
-      </Switch>
-      <Switch>
         <Route path="/profile" exact component={Profile} />
-      </Switch>
-      <Switch>
-        <Route component={NotFound}/>
+        <Route path="*" component={NotFound}/>
       </Switch>
     </BrowserRouter>
   );
