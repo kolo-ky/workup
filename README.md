@@ -3,7 +3,7 @@ Divide and rule.
 
 Канбан-доска с авторизацией
 =====================
-[JavaScript проект](https://htmlacademy.ru/skills/kanban-board) HTML-Академии,
+[JavaScript проект](https://htmlacademy.ru/projects) HTML-Академии,
 написанный на React с добавлением новых фич.
 -----------------------------------
 * Бэклог
