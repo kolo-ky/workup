@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from 'react-router-dom';
 
 // hocs
-import {WithNotFoundLayout} from '../../hocs/with-not-found-layout';
+import {withServiceLayout} from '../../../hocs/with-service-layout';
 
 // styles
 import classnames from "classnames";
@@ -23,4 +23,4 @@ const NotFound = () => {
   );
 };
 
-export default WithNotFoundLayout(NotFound);
+export default withServiceLayout(NotFound);

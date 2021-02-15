@@ -1,43 +1,43 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 // styles
 import style from './user.module.css';
 import classnames from 'classnames';
 
-const User = ({showUserMenu}) => {
+const ALLOWED_SCREENS = [`Main`];
+
+const User = ({screen}) => {
   return (
     <ul className={classnames(style.user)}>
       <li className={classnames(style.userAvatar)}>
         A
       </li>
       {
-        showUserMenu
-        ?
-            <li className={classnames(style.userMenu)}>
-              <ul className={classnames(style.menu)}>
-                <li className={classnames(style.menuItem)}>
-                  <Link to="/profile">
-                    Профиль
-                  </Link>
-                </li>
-                <li className={classnames(style.menuItem)}>
-                  <Link to="/">
-                    Выйти
-                  </Link>
-                </li>
-              </ul>
-            </li>
-          :
-            null
+        ALLOWED_SCREENS.includes(screen) && (
+          <li className={classnames(style.userMenu)}>
+            <ul className={classnames(style.menu)}>
+              <li className={classnames(style.menuItem)}>
+                <Link to="/profile">
+                  Профиль
+                </Link>
+              </li>
+              <li className={classnames(style.menuItem)}>
+                <Link to="/">
+                  Выйти
+                </Link>
+              </li>
+            </ul>
+          </li>
+        )
       }
     </ul>
   );
 };
 
 User.propTypes = {
-  showUserMenu: PropTypes.bool.isRequired
+  screen: PropTypes.string.isRequired
 };
 
 export default User;

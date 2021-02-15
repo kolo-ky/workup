@@ -1,7 +1,7 @@
 import React from 'react';
 
 // hocs
-import {WithProfileLayout} from '../../hocs/with-profile-layout';
+import {withMainLayout} from '../../../hocs/with-main-layout';
 
 const Profile = () => {
   return (
@@ -11,4 +11,4 @@ const Profile = () => {
   );
 };
 
-export default WithProfileLayout(Profile);
+export default withMainLayout(Profile);

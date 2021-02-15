@@ -1,12 +1,11 @@
 import React from "react";
 
 // hocs
-import {WithLoginLayout} from '../../hocs/with-login-layout';
+import {withServiceLayout} from '../../../hocs/with-service-layout';
 
 // styles
 import style from './login.module.css';
 import classnames from 'classnames';
-import buttonStyle from "../../../assets/common-styles/comon.style.css";
 
 const Login = () => {
   return (
@@ -30,4 +29,4 @@ const Login = () => {
   );
 };
 
-export default WithLoginLayout(Login);
+export default withServiceLayout(Login);

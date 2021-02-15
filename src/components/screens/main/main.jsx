@@ -1,7 +1,7 @@
 import React, {Fragment, useState} from "react";
 
 // hocs
-import {WithMainLayout} from "../../hocs/with-main-layout";
+import {withMainLayout} from "../../../hocs/with-main-layout";
 
 // style
 import style from './main-module.css';
@@ -17,7 +17,7 @@ import mochaTasks from '../../../mocha/tasks';
 const Main = () => {
   const [tasks, updateTasks] = useState(mochaTasks.slice());
   const getTasks = (id) => {
-    return tasks.filter(task => task.boardId === id);
+    return tasks.filter((task) => task.boardId === id);
   };
 
   return (
@@ -25,7 +25,7 @@ const Main = () => {
       <AddTask />
       <section className={classnames(style.taskBoard)}>
         {
-          boards.map(board => (
+          boards.map((board) => (
             <board.component tasks={getTasks(board.id)} title={board.title} key={`$board-${board.id}`}/>
           ))
         }
@@ -34,4 +34,4 @@ const Main = () => {
   );
 };
 
-export default WithMainLayout(Main);
+export default withMainLayout(Main);
