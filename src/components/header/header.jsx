@@ -5,22 +5,19 @@ import PropTypes from 'prop-types';
 // styles
 import style from './header.module.css';
 
-// components
-import User from '../user/user';
-
-const Header = ({screen}) => {
+const Header = ({children}) => {
   return (
     <header className={style.boardHeader}>
       <div className={style.boardInner}>
         <h1><Link to="/">WorkUp</Link></h1>
-        <User screen={screen}/>
+        {children}
       </div>
     </header>
   );
 };
 
 Header.propTypes = {
-  screen: PropTypes.string.isRequired
+  children: PropTypes.object
 };
 
 export default Header;
