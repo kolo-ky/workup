@@ -3,25 +3,18 @@ import PropTypes from 'prop-types';
 
 // styles
 import classnames from "classnames";
-import style from "../../assets/common-styles/comon.style.css";
+import style from "../../../assets/common-styles/comon.style.css";
 
 // types
-import taskType from '../../types/task';
+import taskType from '../../../types/task';
 
-const TASK_COLOR_BY_BOARD_ID = {
-  0: 'taskBacklog',
-  1: 'taskProcessing',
-  2: 'taskDone',
-  3: 'taskBasket',
-}
-
-const TaskItem = ({task}) => {
+const TaskItem = ({task, indentClassName}) => {
   const [isTaskEdit, toggleEditTask] = useState();
   const [taskTitle, setTaskTitle] = useState(task.title);
 
   const handleSetTaskTitle = ({target}) => {
     setTaskTitle(target.value);
-  }
+  };
 
   const handleToggleTask = () => {
     if (isTaskEdit) {
@@ -33,23 +26,23 @@ const TaskItem = ({task}) => {
 
   return (
     <div className={classnames(
-      style.taskBoardItem,
-      style.task,
-      style[TASK_COLOR_BY_BOARD_ID[task.boardId]],
-      isTaskEdit ? style.taskActive : null
+        style.taskBoardItem,
+        style.task,
+        indentClassName,
+        isTaskEdit ? style.taskActive : null
     )}>
       <div className={classnames(style.taskBody)}>
         {
           isTaskEdit
             ?
-              <input
-                className={classnames(style.taskInput)}
-                type="text"
-                value={taskTitle}
-                onChange={handleSetTaskTitle}
-              />
+            <input
+              className={classnames(style.taskInput)}
+              type="text"
+              value={taskTitle}
+              onChange={handleSetTaskTitle}
+            />
             :
-              <p className={classnames(style.taskView)}>{task.title}</p>
+            <p className={classnames(style.taskView)}>{task.title}</p>
         }
       </div>
       <button
@@ -63,7 +56,8 @@ const TaskItem = ({task}) => {
 };
 
 TaskItem.propTypes = {
-  task: PropTypes.shape(taskType)
+  task: PropTypes.shape(taskType),
+  indentClassName: PropTypes.string
 };
 
 export default TaskItem;
