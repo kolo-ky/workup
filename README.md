@@ -19,3 +19,5 @@ Divide and rule.
 Используемый стек
 -----------------------------------
 * React
+* React-router
+* TypeScript
