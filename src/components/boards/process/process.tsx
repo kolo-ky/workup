@@ -7,8 +7,8 @@ import processStyle from './process.module.css';
 import classnames from 'classnames';
 
 // components
-import TaskList from "../../task-list/task-list";
-import TaskEmpty from "../../task-empty/task-empty";
+import {TaskList} from "../../task-list";
+import {TaskEmpty} from "../../task-empty";
 
 // types
 import type {IBoards} from "../../interface/boards.interface";

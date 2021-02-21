@@ -7,8 +7,8 @@ import trashStyle from './trash.module.css';
 import classnames from 'classnames';
 
 // components
-import TaskList from "../../task-list/task-list";
-import TrashEmpty from "../../trash-empty/trash-empty";
+import {TaskList} from "../../task-list";
+import {TrashEmpty} from "../../trash-empty";
 
 // icons
 import icons from '../../../assets/icons/icons';

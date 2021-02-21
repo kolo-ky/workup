@@ -7,7 +7,7 @@ import backlogStyle from './backlog.module.css';
 import classnames from 'classnames';
 
 // components
-import TaskList from '../../task-list/task-list';
+import {TaskList} from '../../task-list';
 
 // types
 import type {IBoards} from "../../interface/boards.interface";

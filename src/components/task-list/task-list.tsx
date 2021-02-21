@@ -1,5 +1,4 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, {FC, ReactNode} from 'react';
 
 // styles
 import classnames from "classnames";
@@ -8,10 +7,15 @@ import style from "../../assets/common-styles/comon.style.css";
 // proxy
 import TaskItemProxy from '../../proxy/task-item.proxy';
 
-// types
-import task from '../../types/task';
+// type
+import type {ITask} from "../interface/task.interface";
 
-const TaskList = ({tasks, children}) => {
+interface ITaskList {
+  tasks: Array<ITask>,
+  children?: ReactNode
+}
+
+const TaskList: FC<ITaskList> = ({tasks, children}) => {
   return (
     <div className={classnames(style.taskBoardList)}>
       {
@@ -27,9 +31,4 @@ const TaskList = ({tasks, children}) => {
   );
 };
 
-TaskList.propTypes = {
-  tasks: PropTypes.arrayOf(PropTypes.shape(task)),
-  children: PropTypes.object
-};
-
-export default TaskList;
+export {TaskList};
