@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from "react";
+import React, {FC, Fragment, useState} from "react";
 
 // hocs
 import {withMainLayout} from "../../../hocs/with-main-layout";
@@ -14,7 +14,7 @@ import boards from '../../boards/boards';
 // mocha
 import mochaTasks from '../../../mocha/tasks';
 
-const Main = () => {
+const Main: FC = () => {
   const [tasks, updateTasks] = useState(mochaTasks.slice());
   const getTasks = (id) => {
     return tasks.filter((task) => task.boardId === id);
@@ -33,5 +33,5 @@ const Main = () => {
     </Fragment>
   );
 };
-
-export default withMainLayout(Main);
+const MainScreen = withMainLayout(Main);
+export {MainScreen};
