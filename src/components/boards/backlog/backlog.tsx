@@ -1,4 +1,4 @@
-import React from "react";
+import React, {FC} from "react";
 import PropTypes from 'prop-types';
 
 // styles
@@ -10,9 +10,11 @@ import classnames from 'classnames';
 import TaskList from '../../task-list/task-list';
 
 // types
-import task from '../../../types/task';
+import type {IBoards} from "../../interface/boards.interface";
 
-const Backlog = ({tasks, title}) => {
+interface IBacklog extends IBoards {}
+
+const Backlog: FC<IBacklog> = ({tasks, title}) => {
   return (
     <article className={classnames(style.taskBoardGroup, backlogStyle.taskBoardGroupBacklog)}>
       <h3 className={classnames(style.taskBoardGroupHeading, backlogStyle.taskBoardGroupHeadingBacklog)}>{title}</h3>
@@ -21,9 +23,4 @@ const Backlog = ({tasks, title}) => {
   );
 };
 
-Backlog.propTypes = {
-  tasks: PropTypes.arrayOf(PropTypes.shape(task)),
-  title: PropTypes.string.isRequired
-};
-
-export default Backlog;
+export {Backlog};

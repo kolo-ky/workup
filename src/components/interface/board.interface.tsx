@@ -1,5 +1,5 @@
 import {FC} from "react";
-import {ITask} from "./task-interface";
+import {ITask} from "./task.interface";
 
 interface IBoard {
   id: number,

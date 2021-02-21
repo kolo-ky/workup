@@ -9,7 +9,7 @@ import classnames from 'classnames';
 import icons from '../../assets/icons/icons';
 
 // types
-import type {ITask} from "../interface/task-interface";
+import type {ITask} from "../interface/task.interface";
 
 interface IAddTask {
   addTask(task: ITask):void

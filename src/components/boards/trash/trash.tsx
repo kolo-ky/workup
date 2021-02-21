@@ -1,4 +1,4 @@
-import React from "react";
+import React, {FC} from "react";
 import PropTypes from 'prop-types';
 
 // styles
@@ -10,13 +10,15 @@ import classnames from 'classnames';
 import TaskList from "../../task-list/task-list";
 import TrashEmpty from "../../trash-empty/trash-empty";
 
-// types
-import task from "../../../types/task";
-
 // icons
 import icons from '../../../assets/icons/icons';
 
-const Trash = ({tasks, title}) => {
+// types
+import type {IBoards} from "../../interface/boards.interface";
+
+interface ITrash extends IBoards {}
+
+const Trash: FC<ITrash> = ({tasks, title}) => {
   return (
     <article className={classnames(style.taskBoardGroup, trashStyle.taskBoardGroupBasket)}>
       <h3 className={classnames(style.taskBoardGroupHeading, trashStyle.taskBoardGroupHeadingBasket)}>{title}</h3>
@@ -35,9 +37,4 @@ const Trash = ({tasks, title}) => {
   );
 };
 
-Trash.propTypes = {
-  tasks: PropTypes.arrayOf(PropTypes.shape(task)),
-  title: PropTypes.string.isRequired
-};
-
-export default Trash;
+export {Trash};

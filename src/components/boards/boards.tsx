@@ -1,8 +1,8 @@
 // components
-import Backlog from "./backlog/backlog";
-import Process from "./process/process";
-import Done from "./done/done";
-import Trash from "./trash/trash";
+import {Backlog} from "./backlog";
+import {Process} from "./process";
+import {Done} from "./done";
+import {Trash} from "./trash";
 
 export default [
   {

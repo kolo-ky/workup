@@ -9,7 +9,7 @@ import classnames from 'classnames';
 
 // types
 import type {IBoard} from "../../interface/board.interface";
-import type {ITask} from "../../interface/task-interface";
+import type {ITask} from "../../interface/task.interface";
 
 // components
 import {AddTask} from "../../add-task";

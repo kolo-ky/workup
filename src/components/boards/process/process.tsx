@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from 'react';
 import PropTypes from 'prop-types';
 
 // styles
@@ -11,9 +11,11 @@ import TaskList from "../../task-list/task-list";
 import TaskEmpty from "../../task-empty/task-empty";
 
 // types
-import task from "../../../types/task";
+import type {IBoards} from "../../interface/boards.interface";
 
-const Process = ({tasks, title}) => {
+interface IProcess extends IBoards {}
+
+const Process: FC<IProcess> = ({tasks, title}) => {
   return (
     <article className={classnames(style.taskBoardGroup, processStyle.taskBoardGroupProcessing)}>
       <h3 className={classnames(style.taskBoardGroupHeading, processStyle.taskBoardGroupHeadingProcessing)}>{title}</h3>
@@ -24,9 +26,4 @@ const Process = ({tasks, title}) => {
   );
 };
 
-Process.propTypes = {
-  tasks: PropTypes.arrayOf(PropTypes.shape(task)),
-  title: PropTypes.string.isRequired
-};
-
-export default Process;
+export {Process};
