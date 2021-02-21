@@ -21,6 +21,11 @@ module.exports = {
               },
           },
           {
+            test: /\.tsx?$/,
+            use: 'ts-loader',
+            exclude: /node_modules/,
+          },
+          {
             test: /\.css$/,
             use: [
               'style-loader',
@@ -45,7 +50,7 @@ module.exports = {
         ],
     },
     resolve: {
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.ts', '.jsx', '.tsx']
     },
     devtool: 'source-map',
 };

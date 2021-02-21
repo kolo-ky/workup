@@ -8,7 +8,7 @@ import style from './main-module.css';
 import classnames from 'classnames';
 
 // components
-import AddTask from "../../add-task/add-task";
+import {AddTask} from "../../add-task/";
 import boards from '../../boards/boards';
 
 // mocha

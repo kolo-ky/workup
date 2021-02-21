@@ -20,6 +20,8 @@
     "eslint-plugin-react": "7.22",
     "file-loader": "6.2.0",
     "style-loader": "2.0.0",
+    "ts-loader": "8.0.17",
+    "typescript": "4.1.5",
     "webpack": "4.46",
     "webpack-cli": "3.3",
     "webpack-dev-server": "3.11"
@@ -36,7 +38,6 @@
     "prop-types": "15.7",
     "react": "16.12.0",
     "react-dom": "16.14",
-    "react-router-dom": "5.2",
-    "typescript": "4.1.5"
+    "react-router-dom": "5.2"
   }
 }
