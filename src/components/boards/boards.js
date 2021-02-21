@@ -8,21 +8,21 @@ export default [
   {
     id: 0,
     component: Backlog,
-    title: 'Бэклог'
+    title: `Бэклог`
   },
   {
     id: 1,
     component: Process,
-    title: 'В процессе'
+    title: `В процессе`
   },
   {
     id: 2,
     component: Done,
-    title: 'Готово'
+    title: `Готово`
   },
   {
     id: 3,
     component: Trash,
-    title: 'Корзина'
+    title: `Корзина`
   }
 ];

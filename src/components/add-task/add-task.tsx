@@ -8,14 +8,30 @@ import classnames from 'classnames';
 // icons
 import icons from '../../assets/icons/icons';
 
-const AddTask: FC = () => {
-  const [task, setTask] = useState<string>('');
+// types
+import type {ITask} from "../interface/task-interface";
+
+interface IAddTask {
+  addTask(task: ITask):void
+}
+
+const AddTask: FC<IAddTask> = (props) => {
+  const [taskTitle, setTask] = useState<string>('');
+  const {addTask} = props;
+
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setTask(event.target.value);
   };
 
-  const handleSubmit = (event: FormEvent) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    addTask({
+      id: 4,
+      title: taskTitle,
+      boardId: 0,
+      statusId: 0
+    });
+    setTask('');
   };
 
   return (
@@ -33,7 +49,7 @@ const AddTask: FC = () => {
             id="add-task"
             placeholder="Название задачи..."
             required
-            value={task}
+            value={taskTitle}
             onChange={handleChange}
           />
         </div>
