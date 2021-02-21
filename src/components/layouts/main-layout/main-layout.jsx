@@ -3,20 +3,15 @@ import PropTypes from 'prop-types';
 
 // components
 import Header from '../../header/header';
-import User from '../../user/user';
 
 // style
 import style from './main-layout.module.css';
 import classnames from 'classnames';
 
 const MainLayout = ({children}) => {
-  const screen = children.type.name;
-
   return (
     <Fragment>
-      <Header>
-        <User screen={screen} />
-      </Header>
+      <Header/>
       <main className={classnames(style.boardMain)}>
         <div className={style.boardInner}>
           {children}
