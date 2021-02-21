@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {FC, useState} from 'react';
 import PropTypes from 'prop-types';
 
 // styles
@@ -6,11 +6,15 @@ import classnames from "classnames";
 import style from "../../../assets/common-styles/comon.style.css";
 
 // types
-import taskType from '../../../types/task';
+import type {ICommonTaskItem} from "../../interface/common-task-item.interface";
 
-const TaskItem = ({task, indentClassName}) => {
-  const [isTaskEdit, toggleEditTask] = useState();
-  const [taskTitle, setTaskTitle] = useState(task.title);
+interface ITaskItemCh extends ICommonTaskItem {
+  indentClassName: string
+}
+
+const TaskItem:FC<ITaskItemCh> = ({task, indentClassName}) => {
+  const [isTaskEdit, toggleEditTask] = useState<boolean>();
+  const [taskTitle, setTaskTitle] = useState<string>(task.title);
 
   const handleSetTaskTitle = ({target}) => {
     setTaskTitle(target.value);
@@ -55,9 +59,4 @@ const TaskItem = ({task, indentClassName}) => {
   );
 };
 
-TaskItem.propTypes = {
-  task: PropTypes.shape(taskType),
-  indentClassName: PropTypes.string
-};
-
-export default TaskItem;
+export {TaskItem};

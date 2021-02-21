@@ -1,14 +1,13 @@
-import React from "react";
+import React, {FC} from "react";
 import PropTypes from "prop-types";
 
 // components
-import TaskItem from '../components/task-list/task-item/task-item';
+import {TaskItem} from '../components/task-list/task-item';
 
 // style
 import style from "../assets/common-styles/comon.style.css";
 
-// types
-import task from "../types/task";
+import type {ICommonTaskItem} from '../components/interface/common-task-item.interface';
 
 const TASK_COLOR_BY_BOARD_ID = {
   0: `taskBacklog`,
@@ -17,8 +16,8 @@ const TASK_COLOR_BY_BOARD_ID = {
   3: `taskBasket`,
 };
 
-const TaskItemProxy = (props) => {
-  const getClassName = () => {
+const TaskItemProxy: FC<ICommonTaskItem> = (props) => {
+  const getClassName = ():string => {
     return style[TASK_COLOR_BY_BOARD_ID[props.task.boardId]];
   };
 
@@ -27,8 +26,4 @@ const TaskItemProxy = (props) => {
   );
 };
 
-TaskItemProxy.propTypes = {
-  task: PropTypes.shape(task),
-};
-
-export default TaskItemProxy;
+export {TaskItemProxy};
