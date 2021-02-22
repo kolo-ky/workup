@@ -15,9 +15,8 @@ interface IAddTask {
   addTask(task: ITask):void
 }
 
-const AddTask: FC<IAddTask> = (props) => {
+const AddTask: FC<IAddTask> = ({addTask}) => {
   const [taskTitle, setTask] = useState<string>('');
-  const {addTask} = props;
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setTask(event.target.value);
@@ -26,7 +25,7 @@ const AddTask: FC<IAddTask> = (props) => {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     addTask({
-      id: 4,
+      id: Date.now(),
       title: taskTitle,
       boardId: 0,
       statusId: 0

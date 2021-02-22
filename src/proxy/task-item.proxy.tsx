@@ -9,16 +9,16 @@ import style from "../assets/common-styles/comon.style.css";
 
 import type {ICommonTaskItem} from '../components/interface/common-task-item.interface';
 
-const TASK_COLOR_BY_BOARD_ID = {
-  0: `taskBacklog`,
-  1: `taskProcessing`,
-  2: `taskDone`,
-  3: `taskBasket`,
-};
+enum TaskColor {
+  taskBacklog,
+  taskProcessing,
+  taskDone,
+  taskBasket,
+}
 
 const TaskItemProxy: FC<ICommonTaskItem> = (props) => {
   const getClassName = ():string => {
-    return style[TASK_COLOR_BY_BOARD_ID[props.task.boardId]];
+    return style[TaskColor[props.task.boardId]];
   };
 
   return (

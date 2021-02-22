@@ -13,7 +13,7 @@ interface ITaskItemCh extends ICommonTaskItem {
 }
 
 const TaskItem:FC<ITaskItemCh> = ({task, indentClassName}) => {
-  const [isTaskEdit, toggleEditTask] = useState<boolean>();
+  const [isTaskEdit, toggleEditTask] = useState<boolean>(false);
   const [taskTitle, setTaskTitle] = useState<string>(task.title);
 
   const handleSetTaskTitle = ({target}) => {
