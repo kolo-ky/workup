@@ -8,11 +8,11 @@ import style from "../../../assets/common-styles/comon.style.css";
 // types
 import type {ICommonTaskItem} from "../../interface/common-task-item.interface";
 
-interface ITaskItemCh extends ICommonTaskItem {
+interface ITaskItem extends ICommonTaskItem {
   indentClassName: string
 }
 
-const TaskItem:FC<ITaskItemCh> = ({task, indentClassName}) => {
+const TaskItem:FC<ITaskItem> = ({task, indentClassName}) => {
   const [isTaskEdit, toggleEditTask] = useState<boolean>(false);
   const [taskTitle, setTaskTitle] = useState<string>(task.title);
 
