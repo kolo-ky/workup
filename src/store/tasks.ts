@@ -14,8 +14,8 @@ class Tasks {
     makeAutoObservable(this);
   }
 
-  addTask(payload) {
-    this.tasks = [...this.tasks, ...payload];
+  addTask(payload: ITask) {
+    this.tasks = [...this.tasks, payload];
   }
 
   getBoardTasks(id: number) {
