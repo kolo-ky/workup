@@ -15,7 +15,7 @@ class Tasks {
   }
 
   addTask(payload: ITask) {
-    this.tasks = [...this.tasks, payload];
+    this.tasks.push(payload);
   }
 
   getBoardTasks(id: number) {
