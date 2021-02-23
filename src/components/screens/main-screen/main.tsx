@@ -24,7 +24,7 @@ import store from '../../../store/tasks';
 const Main: FC = observer(() => {
 
   const getTasks = (id: number) => {
-    return store.boardTasks(id);
+    return store.getBoardTasks(id);
   };
 
   const handleAddTask = (task: ITask) => {
@@ -47,5 +47,6 @@ const Main: FC = observer(() => {
     </Fragment>
   );
 });
+
 const MainScreen = withMainLayout(Main);
 export {MainScreen};

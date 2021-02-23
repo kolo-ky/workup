@@ -18,7 +18,7 @@ class Tasks {
     this.tasks = [...this.tasks, ...payload];
   }
 
-  boardTasks(id: number) {
+  getBoardTasks(id: number) {
     return this.tasks.filter((task) => task.boardId === id);
   }
 }
