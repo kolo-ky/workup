@@ -1,4 +1,4 @@
-import React, {FC, Fragment, useState} from "react";
+import React, {FC, Fragment} from "react";
 
 // hocs
 import {withMainLayout} from "../../../hocs/with-main-layout";
@@ -15,21 +15,20 @@ import type {ITask} from "../../interface/task.interface";
 import {AddTask} from "../../add-task";
 import boardsArray from '../../boards/boards';
 
-// mocha
-import mochaTasks from '../../../mocha/tasks';
+// mobx
+import {observer} from "mobx-react-lite";
 
-const Main: FC = () => {
-  const [tasks, updateTasks] = useState<Array<ITask>>(mochaTasks.slice());
+// store
+import store from '../../../store/tasks';
+
+const Main: FC = observer(() => {
 
   const getTasks = (id: number) => {
-    return tasks.filter((task) => task.boardId === id);
+    return store.boardTasks(id);
   };
 
   const handleAddTask = (task: ITask) => {
-    updateTasks((prevState) => ([
-      ...prevState,
-      task
-    ]));
+    store.addTask(task);
   };
 
   const boards: Array<IBoard> = boardsArray;
@@ -47,6 +46,6 @@ const Main: FC = () => {
       </section>
     </Fragment>
   );
-};
+});
 const MainScreen = withMainLayout(Main);
 export {MainScreen};
