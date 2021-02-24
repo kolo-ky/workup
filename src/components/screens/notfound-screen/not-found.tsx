@@ -1,4 +1,4 @@
-import React from "react";
+import React, {FC} from "react";
 import {Link} from 'react-router-dom';
 
 // hocs
@@ -11,7 +11,7 @@ import style from "./not-found.module.css";
 // routes
 import {routes} from "../../../routes";
 
-const NotFound = () => {
+const NotFound: FC = () => {
   return (
     <section className={classnames(style.notFoundSection)}>
       <h1 className={classnames(style.notFoundTitle)}>404</h1>

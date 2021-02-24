@@ -1,4 +1,4 @@
-import React from "react";
+import React, {FC} from "react";
 import {Link} from "react-router-dom";
 
 // routes
@@ -11,7 +11,7 @@ import {withServiceLayout} from '../../../hocs/with-service-layout';
 import style from './login.module.css';
 import classnames from 'classnames';
 
-const Login = () => {
+const Login: FC = () => {
   return (
     <section className={classnames(style.loginSection)}>
       <h1 className={classnames(style.loginTitle)}>WorkUp</h1>

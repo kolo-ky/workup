@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {Link} from 'react-router-dom';
 
 // styles
@@ -8,7 +8,7 @@ import classnames from 'classnames';
 // routes
 import {routes} from "../../routes";
 
-const User = () => {
+const User: FC = () => {
   return (
     <ul className={classnames(style.user)}>
       <li className={classnames(style.userAvatar)}>

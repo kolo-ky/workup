@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 // components
@@ -7,7 +7,7 @@ import {LoginScreen} from '../screens/login-screen';
 import {ProfileScreen} from "../screens/pfofile-screen";
 import {NotFoundScreen} from '../screens/notfound-screen';
 
-const App = () => {
+const App: FC = () => {
   return (
     <BrowserRouter>
       <Switch>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {Link} from 'react-router-dom';
 
 // routes
@@ -10,7 +10,7 @@ import style from './header.module.css';
 // components
 import {User} from "../user";
 
-const Header = () => {
+const Header: FC = () => {
   return (
     <header className={style.boardHeader}>
       <div className={style.boardInner}>

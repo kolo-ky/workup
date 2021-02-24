@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {FC} from 'react';
 
 // hocs
 import {withMainLayout} from '../../../hocs/with-main-layout';
 
-const Profile = () => {
+const Profile: FC = () => {
   return (
     <section>
       Здесь будут данные профиля
