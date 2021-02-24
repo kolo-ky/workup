@@ -1,15 +1,16 @@
 import React, {FC} from 'react';
 
-// hocs
-import {withMainLayout} from '../../../hocs/with-main-layout/with-main-layout';
+// components
+import {MainLayout} from "../../layouts/main-layout";
 
 const Profile: FC = () => {
   return (
-    <section>
-      Здесь будут данные профиля
-    </section>
+    <MainLayout>
+      <section>
+        Здесь будут данные профиля
+      </section>
+    </MainLayout>
   );
 };
 
-const ProfileScreen = withMainLayout(Profile);
-export {ProfileScreen};
+export {Profile as ProfileScreen};

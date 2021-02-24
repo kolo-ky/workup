@@ -1,8 +1,5 @@
 import React, {FC, Fragment} from "react";
 
-// hocs
-import {withMainLayout} from "../../../hocs/with-main-layout/with-main-layout";
-
 // style
 import style from './main-module.css';
 import classnames from 'classnames';
@@ -14,6 +11,7 @@ import type {ITask} from "../../interface/task.interface";
 // components
 import {AddTask} from "../../add-task";
 import boardsArray from '../../boards/boards';
+import {MainLayout} from "../../layouts/main-layout";
 
 // mobx
 import {observer} from "mobx-react-lite";
@@ -34,20 +32,20 @@ const Main: FC = observer(() => {
   const boards: Array<IBoard> = boardsArray;
 
   return (
-    <Fragment>
-      <AddTask addTask={handleAddTask}/>
-      <section className={classnames(style.taskBoard)}>
-        {boards.map((board: IBoard) => {
-          const Component = board.component;
-          return (
-            <Component tasks={getTasks(board.id)} title={board.title} key={`$board-${board.id}`}/>
-          )})
-        }
-      </section>
-    </Fragment>
+    <MainLayout>
+      <Fragment>
+        <AddTask addTask={handleAddTask}/>
+        <section className={classnames(style.taskBoard)}>
+          {boards.map((board: IBoard) => {
+            const Component = board.component;
+            return (
+              <Component tasks={getTasks(board.id)} title={board.title} key={`$board-${board.id}`}/>
+            )})
+          }
+        </section>
+      </Fragment>
+    </MainLayout>
   );
 });
 
-// @ts-ignore
-const MainScreen = withMainLayout(Main);
-export {MainScreen};
+export {Main as MainScreen};
