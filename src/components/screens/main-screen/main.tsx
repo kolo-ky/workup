@@ -39,7 +39,7 @@ const Main: FC = observer(() => {
           {boards.map((board: IBoard) => {
             const Component = board.component;
             return (
-              <Component tasks={getTasks(board.id)} title={board.title} key={`$board-${board.id}`}/>
+              <Component tasks={getTasks(board.id)} boardId={board.id} title={board.title} key={`$board-${board.id}`}/>
             )})
           }
         </section>

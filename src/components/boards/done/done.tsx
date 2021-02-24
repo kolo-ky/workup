@@ -15,11 +15,11 @@ import type {IBoards} from "../../interface/boards.interface";
 
 interface IDone extends IBoards {}
 
-const Done: FC<IDone> = ({tasks, title}) => {
+const Done: FC<IDone> = ({tasks, boardId, title}) => {
   return (
     <article className={classnames(style.taskBoardGroup, doneStyle.taskBoardGroupDone)}>
       <h3 className={classnames(style.taskBoardGroupHeading, doneStyle.taskBoardGroupHeadingDone)}>{title}</h3>
-      <TaskList tasks={tasks}>
+      <TaskList tasks={tasks} boardId={boardId}>
         <TaskEmpty />
       </TaskList>
     </article>

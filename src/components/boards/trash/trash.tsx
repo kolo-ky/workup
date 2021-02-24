@@ -18,11 +18,11 @@ import type {IBoards} from "../../interface/boards.interface";
 
 interface ITrash extends IBoards {}
 
-const Trash: FC<ITrash> = ({tasks, title}) => {
+const Trash: FC<ITrash> = ({tasks, boardId, title}) => {
   return (
     <article className={classnames(style.taskBoardGroup, trashStyle.taskBoardGroupBasket)}>
       <h3 className={classnames(style.taskBoardGroupHeading, trashStyle.taskBoardGroupHeadingBasket)}>{title}</h3>
-      <TaskList tasks={tasks}>
+      <TaskList tasks={tasks} boardId={boardId}>
         <TrashEmpty />
       </TaskList>
       {
