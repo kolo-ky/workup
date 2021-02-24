@@ -1,14 +1,14 @@
-import React, {Fragment} from "react";
+import React, {Fragment, FC, ReactElement} from "react";
 import PropTypes from 'prop-types';
 
 // components
-import Header from '../../header/header';
+import {Header} from '../../header';
 
 // style
 import style from './main-layout.module.css';
 import classnames from 'classnames';
 
-const MainLayout = ({children}) => {
+const MainLayout: FC<{children: ReactElement}> = ({children}) => {
   return (
     <Fragment>
       <Header/>
@@ -21,8 +21,4 @@ const MainLayout = ({children}) => {
   );
 };
 
-MainLayout.propTypes = {
-  children: PropTypes.object
-};
-
-export default MainLayout;
+export {MainLayout};

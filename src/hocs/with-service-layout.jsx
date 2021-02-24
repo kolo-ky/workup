@@ -1,12 +1,12 @@
 import React from 'react';
 
 // components
-import LoginLayout from "../components/layouts/service-layout/service-layout";
+import {ServiceLayout} from "../components/layouts/service-layout";
 
 export const withServiceLayout = (Component) => {
   return (props) => (
-    <LoginLayout>
+    <ServiceLayout>
       <Component {...props}/>
-    </LoginLayout>
+    </ServiceLayout>
   );
 };

@@ -5,6 +5,9 @@ import {Link} from 'react-router-dom';
 import style from './user.module.css';
 import classnames from 'classnames';
 
+// routes
+import {routes} from "../../routes";
+
 const User = () => {
   return (
     <ul className={classnames(style.user)}>
@@ -14,12 +17,12 @@ const User = () => {
       <li className={classnames(style.userMenu)}>
         <ul className={classnames(style.menu)}>
           <li className={classnames(style.menuItem)}>
-            <Link to="/profile">
+            <Link to={routes(`profile`)}>
               Профиль
             </Link>
           </li>
           <li className={classnames(style.menuItem)}>
-            <Link to="/">
+            <Link to={routes(`home`)}>
               Выйти
             </Link>
           </li>
@@ -29,4 +32,4 @@ const User = () => {
   );
 };
 
-export default User;
+export {User};

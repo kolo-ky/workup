@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {FC, ReactElement} from 'react';
 import PropTypes from 'prop-types';
 
 // styles
 import classnames from "classnames";
 import style from "./service-layout.module.css";
 
-const ServiceLayout = ({children}) => {
+const ServiceLayout: FC<{children: ReactElement}> = ({children}) => {
   return (
     <main className={classnames(style.boardAppService)}>
       {children}
@@ -13,8 +13,4 @@ const ServiceLayout = ({children}) => {
   );
 };
 
-ServiceLayout.propTypes = {
-  children: PropTypes.object
-};
-
-export default ServiceLayout;
+export {ServiceLayout};
