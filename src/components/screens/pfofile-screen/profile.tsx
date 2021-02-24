@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 
 // hocs
-import {withMainLayout} from '../../../hocs/with-main-layout';
+import {withMainLayout} from '../../../hocs/with-main-layout/with-main-layout';
 
 const Profile: FC = () => {
   return (

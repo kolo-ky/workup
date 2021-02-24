@@ -1,7 +1,7 @@
 const routes = (path: string): string => {
   const to: object = {
     home: '/',
-    login: '/login-screen',
+    login: '/login',
     auth: '/auth',
     profile: '/profile'
   };

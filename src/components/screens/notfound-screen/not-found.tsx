@@ -2,7 +2,7 @@ import React, {FC} from "react";
 import {Link} from 'react-router-dom';
 
 // hocs
-import {withServiceLayout} from '../../../hocs/with-service-layout';
+import {withServiceLayout} from '../../../hocs/with-service-layout/with-service-layout';
 
 // styles
 import classnames from "classnames";

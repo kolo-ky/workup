@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 import {routes} from "../../../routes";
 
 // hocs
-import {withServiceLayout} from '../../../hocs/with-service-layout';
+import {withServiceLayout} from '../../../hocs/with-service-layout/with-service-layout';
 
 // styles
 import style from './login.module.css';

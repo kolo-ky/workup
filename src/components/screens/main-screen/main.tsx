@@ -1,7 +1,7 @@
 import React, {FC, Fragment} from "react";
 
 // hocs
-import {withMainLayout} from "../../../hocs/with-main-layout";
+import {withMainLayout} from "../../../hocs/with-main-layout/with-main-layout";
 
 // style
 import style from './main-module.css';
@@ -48,5 +48,6 @@ const Main: FC = observer(() => {
   );
 });
 
+// @ts-ignore
 const MainScreen = withMainLayout(Main);
 export {MainScreen};

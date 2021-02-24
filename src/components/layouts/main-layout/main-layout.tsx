@@ -8,7 +8,7 @@ import {Header} from '../../header';
 import style from './main-layout.module.css';
 import classnames from 'classnames';
 
-const MainLayout: FC<{children: ReactElement}> = ({children}) => {
+const MainLayout: FC<{children?: ReactElement}> = ({children}) => {
   return (
     <Fragment>
       <Header/>

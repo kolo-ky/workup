@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import classnames from "classnames";
 import style from "./service-layout.module.css";
 
-const ServiceLayout: FC<{children: ReactElement}> = ({children}) => {
+const ServiceLayout: FC<{children?: ReactElement}> = ({children}) => {
   return (
     <main className={classnames(style.boardAppService)}>
       {children}
