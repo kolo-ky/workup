@@ -1,4 +1,4 @@
-import React, {DragEvent, FC, useState} from 'react';
+import React, {ChangeEvent, DragEvent, FC, useState} from 'react';
 import PropTypes from 'prop-types';
 
 // styles
@@ -17,8 +17,8 @@ const TaskItem:FC<ITaskItem> = ({task, dragStart, dragEnd, indentClassName}) => 
   const [isTaskEdit, toggleEditTask] = useState<boolean>(false);
   const [taskTitle, setTaskTitle] = useState<string>(task.title);
 
-  const handleSetTaskTitle = ({target}) => {
-    setTaskTitle(target.value);
+  const handleSetTaskTitle = (event: ChangeEvent<HTMLInputElement>) => {
+    setTaskTitle(event.target.value);
   };
 
   const handleToggleTask = () => {
