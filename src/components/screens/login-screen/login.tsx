@@ -1,4 +1,8 @@
 import React from "react";
+import {Link} from "react-router-dom";
+
+// routes
+import {routes} from "../../../routes";
 
 // hocs
 import {withServiceLayout} from '../../../hocs/with-service-layout';
@@ -23,10 +27,11 @@ const Login = () => {
         </button>
       </form>
       <p>
-        <a className={classnames(style.authLink)} href="/auth">В первый раз? Зарегистрироваться</a>
+        <Link className={classnames(style.authLink)} to={routes('auth')}>В первый раз? Зарегистрироваться</Link>
       </p>
     </section>
   );
 };
 
-export default withServiceLayout(Login);
+const LoginScreen = withServiceLayout(Login);
+export {LoginScreen};

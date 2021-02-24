@@ -3,18 +3,18 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 // components
 import {MainScreen} from '../screens/main-screen/';
-import Login from '../../components/screens/login/login';
-import Profile from "../screens/pfofile/profile";
-import NotFound from '../../components/screens/not-found/not-found';
+import {LoginScreen} from '../screens/login-screen';
+import {ProfileScreen} from "../screens/pfofile-screen";
+import {NotFoundScreen} from '../screens/notfound-screen';
 
 const App = () => {
   return (
     <BrowserRouter>
       <Switch>
         <Route path="/" exact component={MainScreen} />
-        <Route path="/login" exact component={Login} />
-        <Route path="/profile" exact component={Profile} />
-        <Route path="*" component={NotFound}/>
+        <Route path="/login" exact component={LoginScreen} />
+        <Route path="/profile" exact component={ProfileScreen} />
+        <Route path="*" component={NotFoundScreen}/>
       </Switch>
     </BrowserRouter>
   );

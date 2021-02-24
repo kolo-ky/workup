@@ -11,4 +11,5 @@ const Profile = () => {
   );
 };
 
-export default withMainLayout(Profile);
+const ProfileScreen = withMainLayout(Profile);
+export {ProfileScreen};

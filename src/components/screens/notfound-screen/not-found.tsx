@@ -23,4 +23,5 @@ const NotFound = () => {
   );
 };
 
-export default withServiceLayout(NotFound);
+const NotFoundScreen = withServiceLayout(NotFound);
+export {NotFoundScreen};
