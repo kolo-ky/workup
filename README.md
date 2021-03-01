@@ -22,3 +22,7 @@ Divide and rule.
 * React-router
 * TypeScript
 * Mobx
+
+Сервер
+-----------------------------------
+В качестве сервера используется [json-server](https://github.com/typicode/json-server)
