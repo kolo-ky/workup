@@ -13,20 +13,14 @@ import {AddTask} from "../../add-task";
 import boardsArray from '../../boards/boards';
 import {MainLayout} from "../../layouts/main-layout";
 
-// mobx
-import {observer} from "mobx-react-lite";
-
-// store
-import store from '../../../store/tasks';
-
-const Main: FC = observer(() => {
+const Main: FC = () => {
 
   const getTasks = (id: number) => {
-    return store.getBoardTasks(id);
+    return [];
   };
 
   const handleAddTask = (task: ITask) => {
-    store.addTask(task);
+    console.log(task);
   };
 
   const boards: Array<IBoard> = boardsArray;
@@ -46,6 +40,6 @@ const Main: FC = observer(() => {
       </Fragment>
     </MainLayout>
   );
-});
+};
 
 export {Main as MainScreen};

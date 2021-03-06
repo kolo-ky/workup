@@ -21,7 +21,7 @@ Divide and rule.
 * React
 * React-router
 * TypeScript
-* Mobx
+* Redux
 
 Сервер
 -----------------------------------
