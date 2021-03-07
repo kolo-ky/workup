@@ -8,7 +8,7 @@ import style from "../../assets/common-styles/comon.style.css";
 import {TaskItemProxy} from '../../proxy';
 
 // type
-import type {ITask} from "../interface/task.interface";
+import type {ITask} from "../../interfaces/task.interface";
 
 interface ITaskList {
   tasks: Array<ITask>,

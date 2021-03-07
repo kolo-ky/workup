@@ -14,7 +14,7 @@ import {TrashEmpty} from "../../trash-empty";
 import icons from '../../../assets/icons/icons';
 
 // types
-import type {IBoards} from "../../interface/boards.interface";
+import type {IBoards} from "../../../interfaces/boards.interface";
 
 interface ITrash extends IBoards {}
 

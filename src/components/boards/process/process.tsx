@@ -11,7 +11,7 @@ import {TaskList} from "../../task-list";
 import {TaskEmpty} from "../../task-empty";
 
 // types
-import type {IBoards} from "../../interface/boards.interface";
+import type {IBoards} from "../../../interfaces/boards.interface";
 
 interface IProcess extends IBoards {}
 

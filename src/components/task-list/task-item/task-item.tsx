@@ -6,8 +6,8 @@ import classnames from "classnames";
 import style from "../../../assets/common-styles/comon.style.css";
 
 // types
-import type {ICommonTaskItem} from "../../interface/common-task-item.interface";
-import {ITask} from "../../interface/task.interface";
+import type {ICommonTaskItem} from "../../../interfaces/common-task-item.interface";
+import {ITask} from "../../../interfaces/task.interface";
 
 interface ITaskItem extends ICommonTaskItem {
   indentClassName: string

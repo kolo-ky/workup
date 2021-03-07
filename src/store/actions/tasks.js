@@ -1,16 +1,21 @@
-export const SET_TASKS = `SET_TASKS`;
-export const ADD_TASKS = `ADD_TASKS`;
+import {TaskActions} from "../../interfaces/task-action.interface";
 
-export const getTasks = (payload) => {
+export const setTasksAction = (payload) => {
   return {
-    type: SET_TASKS,
+    type: TaskActions.SET_TASKS,
     payload
   };
 };
 
-export const addTask = (payload) => {
+export const addTaskAction = (payload) => {
   return {
-    type: ADD_TASKS,
+    type: TaskActions.ADD_TASKS,
     payload
+  };
+};
+
+export const toggleLoading = () => {
+  return {
+    type: TaskActions.TOGGLE_LOADING
   };
 };

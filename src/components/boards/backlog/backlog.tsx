@@ -10,7 +10,7 @@ import classnames from 'classnames';
 import {TaskList} from '../../task-list';
 
 // types
-import type {IBoards} from "../../interface/boards.interface";
+import type {IBoards} from "../../../interfaces/boards.interface";
 
 interface IBacklog extends IBoards {}
 

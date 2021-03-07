@@ -7,7 +7,7 @@ import {TaskItem} from '../components/task-list/task-item';
 // style
 import style from "../assets/common-styles/comon.style.css";
 
-import type {ICommonTaskItem} from '../components/interface/common-task-item.interface';
+import type {ICommonTaskItem} from '../interfaces/common-task-item.interface';
 
 enum TaskColor {
   taskBacklog,
