@@ -4,7 +4,7 @@ import {getTasksApi, addTaskApi} from "../../api/tasks";
 // actions
 import {toggleLoading, setTasksAction, addTaskAction} from "../actions/tasks";
 
-export const getTasks = () => (dispatch, _getState) => {
+export const fetchTasks = () => (dispatch, _getState) => {
   dispatch(toggleLoading());
   getTasksApi().then((response) => {
     dispatch(setTasksAction(response.data));

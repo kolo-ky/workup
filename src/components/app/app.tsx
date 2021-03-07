@@ -1,5 +1,12 @@
-import React, {FC} from 'react';
+import React, {FC, useEffect} from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {useDispatch, useSelector} from "react-redux";
+
+// actions
+import {fetchTasks} from "../../store/async-actions/tasks";
+
+// selectors
+import {loading} from "../../store/reducers/task-reducer/selectors";
 
 // components
 import {MainScreen} from '../screens/main-screen/';
@@ -11,6 +18,12 @@ import {NotFoundScreen} from '../screens/notfound-screen';
 import {routes} from "../../routes";
 
 const App: FC = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchTasks());
+  }, [fetchTasks]);
+
   return (
     <BrowserRouter>
       <Switch>

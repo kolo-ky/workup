@@ -4,7 +4,11 @@ import {api} from "../axios";
 // types
 import {ITask} from "../interfaces/task.interface";
 
-export const getTasksApi = (): Promise<Array<ITask>> => {
+interface ITaskApiResponse {
+  data: Array<ITask>
+}
+
+export const getTasksApi = (): Promise<ITaskApiResponse> => {
   return api.get(`/tasks`);
 };
 
