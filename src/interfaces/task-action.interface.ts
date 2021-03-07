@@ -22,4 +22,4 @@ interface ITaskActionToggleLoading {
 
 type ITaskAction = ITaskActionSetTasks | ITaskActionAddTasks | ITaskActionToggleLoading;
 
-export {ITaskAction, TaskActions}
+export {ITaskAction, TaskActions};

@@ -1,6 +1,6 @@
 // types
-import type {ITaskState} from '../../interfaces/task-state.interface';
-import {ITaskAction, TaskActions} from '../../interfaces/task-action.interface';
+import type {ITaskState} from '../../../interfaces/task-state.interface';
+import {ITaskAction, TaskActions} from '../../../interfaces/task-action.interface';
 
 const initialState: ITaskState = {
   tasks: [],

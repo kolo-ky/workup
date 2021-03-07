@@ -1,12 +1,21 @@
 import React, {FC, Fragment} from "react";
 
-// style
-import style from './main-module.css';
-import classnames from 'classnames';
+// redux
+import {useSelector, useDispatch} from "react-redux";
+
+// actions
+import {addTaskAction} from "../../../store/actions/tasks";
+
+// selectors
+import {getTasks} from '../../../store/reducers/task-reducer/selectors';
 
 // types
 import type {IBoard} from "../../../interfaces/board.interface";
 import type {ITask} from "../../../interfaces/task.interface";
+
+// style
+import style from './main-module.css';
+import classnames from 'classnames';
 
 // components
 import {AddTask} from "../../add-task";
@@ -14,13 +23,14 @@ import boardsArray from '../../boards/boards';
 import {MainLayout} from "../../layouts/main-layout";
 
 const Main: FC = () => {
-
-  const getTasks = (id: number) => {
-    return [];
+  const dispatch = useDispatch();
+  const tasks = useSelector(state => getTasks(state));
+  const filteredTask = (boardId: number): Array<ITask> => {
+    return tasks.filter(task => task.boardId === boardId);
   };
 
   const handleAddTask = (task: ITask) => {
-    console.log(task);
+    dispatch(addTaskAction(task))
   };
 
   const boards: Array<IBoard> = boardsArray;
@@ -33,7 +43,7 @@ const Main: FC = () => {
           {boards.map((board: IBoard) => {
             const Component = board.component;
             return (
-              <Component tasks={getTasks(board.id)} boardId={board.id} title={board.title} key={`$board-${board.id}`}/>
+              <Component tasks={filteredTask(board.id)} boardId={board.id} title={board.title} key={`$board-${board.id}`}/>
             )})
           }
         </section>
