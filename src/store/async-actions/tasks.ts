@@ -12,10 +12,8 @@ export const fetchTasks = () => (dispatch, _getState) => {
   });
 };
 
-export const addTask = (params) => (dispatch, _getState) => {
-  dispatch(toggleLoading());
+export const fetchAddTask = (params) => (dispatch, _getState) => {
   addTaskApi(params).then((response) => {
     dispatch(addTaskAction(response.data));
-    dispatch(toggleLoading());
   });
 };

@@ -4,7 +4,7 @@ import React, {FC, Fragment} from "react";
 import {useSelector, useDispatch} from "react-redux";
 
 // actions
-import {addTaskAction} from "../../../store/actions/tasks";
+import {fetchAddTask} from '../../../store/async-actions/tasks';
 
 // selectors
 import {getTasks, loading} from '../../../store/reducers/task-reducer/selectors';
@@ -33,7 +33,7 @@ const Main: FC = () => {
   };
 
   const handleAddTask = (task: ITask) => {
-    dispatch(addTaskAction(task))
+    dispatch(fetchAddTask(task))
   };
 
   const boards: Array<IBoard> = boardsArray;
