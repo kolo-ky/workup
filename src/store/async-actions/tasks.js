@@ -12,8 +12,11 @@ export const fetchTasks = () => (dispatch, _getState) => {
   });
 };
 
-export const fetchAddTask = (params) => (dispatch, _getState) => {
-  addTaskApi(params).then((response) => {
+export const fetchAddTask = (params) => (dispatch) => {
+  return addTaskApi(params).then((response) => {
     dispatch(addTaskAction(response.data));
+    return Promise.resolve();
+  }).catch(() => {
+    return Promise.reject();
   });
 };

@@ -1,4 +1,4 @@
-import React, {FC, Fragment} from "react";
+import React, {FC, Fragment, useState} from "react";
 
 // redux
 import {useSelector, useDispatch} from "react-redux";
@@ -22,10 +22,12 @@ import {AddTask} from "../../add-task";
 import boardsArray from '../../boards/boards';
 import {MainLayout} from "../../layouts/main-layout";
 import {Loading} from "../../loading";
+import {Popup} from "../../popup";
 
 const Main: FC = () => {
   const dispatch = useDispatch();
   const tasks = useSelector(state => getTasks(state));
+  const [popupMessage, setMessage] = useState({});
   const isLoading = useSelector(state => loading(state));
 
   const filteredTask = (boardId: number): Array<ITask> => {
@@ -33,7 +35,18 @@ const Main: FC = () => {
   };
 
   const handleAddTask = (task: ITask) => {
-    dispatch(fetchAddTask(task))
+    // @ts-ignore
+    dispatch(fetchAddTask(task)).then(() => {
+      setMessage({
+        type: 'success',
+        message: 'Задача добавлена'
+      });
+    }).catch(() => {
+      setMessage({
+        type: 'fail',
+        message: 'Ошибка сервера'
+      });
+    });
   };
 
   const boards: Array<IBoard> = boardsArray;
@@ -54,6 +67,7 @@ const Main: FC = () => {
                   )})
                 }
               </section>
+              <Popup message={popupMessage} />
            </Fragment>)}
     </MainLayout>
   );

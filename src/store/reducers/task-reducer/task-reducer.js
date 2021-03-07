@@ -1,13 +1,12 @@
-// types
-import type {ITaskState} from '../../../interfaces/task-state.interface';
-import {ITaskAction, TaskActions} from '../../../interfaces/task-action.interface';
+// actions
+import {TaskActions} from "../../actions/tasks";
 
-const initialState: ITaskState = {
+const initialState = {
   tasks: [],
   loading: false
 };
 
-const taskReducer = (state = initialState, action: ITaskAction): ITaskState => {
+const taskReducer = (state = initialState, action) => {
   switch (action.type) {
     case TaskActions.SET_TASKS:
       return {...state, tasks: action.payload};

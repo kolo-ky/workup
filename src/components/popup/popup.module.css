@@ -1,0 +1,30 @@
+.popupWrap {
+  width: 250px;
+  position: absolute;
+  top: 105px;
+  right: 15px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.popupItem {
+  padding: 15px;
+  border-radius: 5px;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.popupItem:last-child {
+  margin-bottom: 0;
+}
+
+.popupItemSuccess {
+  background-color: #65b670;
+}
+
+.popupItemFail {
+  background-color: #c9666c;
+}
