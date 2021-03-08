@@ -1,4 +1,4 @@
-import React, {ChangeEvent, DragEvent, FC, useState} from 'react';
+import React, {ChangeEvent, DragEvent, FC, useState, memo} from 'react';
 import PropTypes from 'prop-types';
 
 // styles
@@ -73,4 +73,5 @@ const TaskItem:FC<ITaskItem> = ({task, dragStart, dragEnd, indentClassName}) => 
   );
 };
 
-export {TaskItem};
+const TaskItemMemo = memo(TaskItem);
+export {TaskItemMemo as TaskItem};
