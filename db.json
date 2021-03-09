@@ -2,7 +2,7 @@
   "tasks": [
     {
       "id": 0,
-      "boardId": 0,
+      "boardId": 1,
       "title": "Задача номер 1",
       "statusId": 0
     },

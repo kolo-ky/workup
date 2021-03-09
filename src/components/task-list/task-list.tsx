@@ -1,4 +1,4 @@
-import React, {FC, DragEvent, ReactNode, useState} from 'react';
+import React, {FC, DragEvent, ReactNode} from 'react';
 
 // styles
 import classnames from "classnames";

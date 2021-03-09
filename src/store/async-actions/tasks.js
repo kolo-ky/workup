@@ -22,8 +22,8 @@ export const fetchAddTask = (params) => (dispatch) => {
 };
 
 export const fetchPutTask = (params) => (dispatch) => {
+  dispatch(moveTaskAction(params.data));
   return putTaskApi(params).then(() => {
-    dispatch(moveTaskAction(params.data));
     return Promise.resolve();
   }).catch(() => {
     return Promise.reject();
