@@ -28,7 +28,8 @@ const AddTask: FC<IAddTask> = ({addTask}) => {
       id: Date.now(),
       title: taskTitle,
       boardId: 0,
-      statusId: 0
+      statusId: 0,
+      order: 0
     });
     setTask('');
   };
