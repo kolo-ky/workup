@@ -35,9 +35,19 @@ const Main: FC = () => {
     return tasks.filter(task => task.boardId === boardId);
   };
 
+  const updateTasksOrder = (newTask) => {
+    const boardTasks = tasks.filter(task => task.boardId === newTask.boardId);
+
+    if (boardTasks.length) {
+      newTask.order = boardTasks[boardTasks.length - 1].order + 1;
+    }
+
+    return newTask;
+  };
+
   const handleAddTask = (task: ITask) => {
     // @ts-ignore
-    dispatch(fetchAddTask(task)).then(() => {
+    dispatch(fetchAddTask(updateTasksOrder(task))).then(() => {
       setMessage({
         type: 'success',
         message: 'Задача добавлена'
