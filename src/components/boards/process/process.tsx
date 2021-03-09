@@ -15,11 +15,11 @@ import type {IBoards} from "../../../interfaces/boards.interface";
 
 interface IProcess extends IBoards {}
 
-const Process: FC<IProcess> = ({tasks, boardId, title}) => {
+const Process: FC<IProcess> = (props) => {
   return (
     <article className={classnames(style.taskBoardGroup, processStyle.taskBoardGroupProcessing)}>
-      <h3 className={classnames(style.taskBoardGroupHeading, processStyle.taskBoardGroupHeadingProcessing)}>{title}</h3>
-      <TaskList tasks={tasks} boardId={boardId}>
+      <h3 className={classnames(style.taskBoardGroupHeading, processStyle.taskBoardGroupHeadingProcessing)}>{props.title}</h3>
+      <TaskList {...props}>
         <TaskEmpty />
       </TaskList>
     </article>

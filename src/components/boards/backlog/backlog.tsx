@@ -14,11 +14,11 @@ import type {IBoards} from "../../../interfaces/boards.interface";
 
 interface IBacklog extends IBoards {}
 
-const Backlog: FC<IBacklog> = ({tasks, boardId, title}) => {
+const Backlog: FC<IBacklog> = (props) => {
   return (
     <article className={classnames(style.taskBoardGroup, backlogStyle.taskBoardGroupBacklog)}>
-      <h3 className={classnames(style.taskBoardGroupHeading, backlogStyle.taskBoardGroupHeadingBacklog)}>{title}</h3>
-      <TaskList tasks={tasks} boardId={boardId}/>
+      <h3 className={classnames(style.taskBoardGroupHeading, backlogStyle.taskBoardGroupHeadingBacklog)}>{props.title}</h3>
+      <TaskList {...props}/>
     </article>
   );
 };

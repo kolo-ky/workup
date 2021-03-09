@@ -1,4 +1,4 @@
-import React, {FC, DragEvent, ReactNode} from 'react';
+import React, {FC, DragEvent, ReactNode, useState} from 'react';
 
 // styles
 import classnames from "classnames";
@@ -10,41 +10,83 @@ import {TaskItemProxy} from '../../proxy';
 // type
 import type {ITask} from "../../interfaces/task.interface";
 
+// redux
+import {useDispatch} from "react-redux";
+
+// actions
+import {fetchPutTask} from '../../store/async-actions/tasks';
+
 interface ITaskList {
   tasks: Array<ITask>,
+  droppedTask: ITask,
+  setTask(task: ITask): void,
+  movedTask(title: string): void,
   boardId: number,
   children?: ReactNode
 }
 
-const TaskList: FC<ITaskList> = ({tasks, boardId, children}) => {
-  const handleDragStart = (task: ITask) => {
-    console.log('board start. Prev boardId = ', task.boardId);
+const TaskList: FC<ITaskList> = (
+  {
+    tasks,
+    droppedTask,
+    boardId,
+    children,
+    setTask,
+    movedTask,
+  }) => {
+  const dispatch = useDispatch();
+
+  const dragStartHandler = (task: ITask) => {
+    setTask(task);
   };
 
-  const handleDragEnd = (task: ITask) => {
-    console.log('board end', task.boardId);
-  };
-
-  const handleOnDrop = (event: DragEvent<HTMLDivElement>, boardId: number) => {
+  const dropHandler = (event: DragEvent<HTMLDivElement>, boardId: number) => {
     event.preventDefault();
-    console.log('board drop. Next boardId = ', boardId);
+    if (droppedTask.boardId !== boardId) {
+      let requestParams = {
+        id: droppedTask.id,
+        data: {
+          ...droppedTask,
+          boardId
+        }
+      };
+      // @ts-ignore
+      dispatch(fetchPutTask(requestParams)).then(() => {
+        movedTask(droppedTask.title)
+      });
+    }
   };
 
-  const handleDragOver = (event: DragEvent<HTMLDivElement>) => {
+  const dragLeaveHandler = (event: DragEvent<HTMLDivElement>) => {
+    //console.log('handleDragEnd', droppedTask);
+  };
+
+  const dragEndHandler = (event: DragEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    //console.log('handleDragEnd', droppedTask);
+  };
+
+  const dragOverHandler = (event: DragEvent<HTMLDivElement>) => {
     event.preventDefault();
   };
 
   return (
     <div
       className={classnames(style.taskBoardList)}
-      onDrop={(event) => handleOnDrop(event, boardId)}
-      onDragOver={(event) => handleDragOver(event)}
     >
       {
         tasks.length
           ?
           tasks.map((task) => (
-            <TaskItemProxy task={task} key={`$task-${task.id}`} dragStart={handleDragStart} dragEnd={handleDragEnd}/>
+            <TaskItemProxy
+              task={task}
+              boardId={boardId}
+              key={`$task-${task.id}`}
+              dragStart={dragStartHandler}
+              dragEnd={dragEndHandler}
+              drop={dropHandler}
+              dragOver={dragOverHandler}
+            />
           ))
           :
           children

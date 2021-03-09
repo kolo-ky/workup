@@ -18,15 +18,15 @@ import type {IBoards} from "../../../interfaces/boards.interface";
 
 interface ITrash extends IBoards {}
 
-const Trash: FC<ITrash> = ({tasks, boardId, title}) => {
+const Trash: FC<ITrash> = (props) => {
   return (
     <article className={classnames(style.taskBoardGroup, trashStyle.taskBoardGroupBasket)}>
-      <h3 className={classnames(style.taskBoardGroupHeading, trashStyle.taskBoardGroupHeadingBasket)}>{title}</h3>
-      <TaskList tasks={tasks} boardId={boardId}>
+      <h3 className={classnames(style.taskBoardGroupHeading, trashStyle.taskBoardGroupHeadingBasket)}>{props.title}</h3>
+      <TaskList {...props}>
         <TrashEmpty />
       </TaskList>
       {
-        tasks.length > 0 && (
+        props.tasks.length > 0 && (
           <button className={classnames(style.taskBoardButton, style.button, style.buttonClear)} type="button">
             <img src={icons.deleteIcon} alt="Очистить список задач"/>
             <span>Очистить</span>

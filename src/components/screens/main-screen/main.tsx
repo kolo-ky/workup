@@ -28,6 +28,7 @@ const Main: FC = () => {
   const dispatch = useDispatch();
   const tasks = useSelector(state => getTasks(state));
   const [popupMessage, setMessage] = useState({});
+  const [droppedTask, setDroppedTask] = useState(null);
   const isLoading = useSelector(state => loading(state));
 
   const filteredTask = (boardId: number): Array<ITask> => {
@@ -49,6 +50,17 @@ const Main: FC = () => {
     });
   };
 
+  const handleMovedTask = (title: string) => {
+    setMessage({
+      type: 'success',
+      message: `Задача "${title}" перемещена`
+    });
+  }
+
+  const handleSetTask = (task: ITask) => {
+    setDroppedTask(task);
+  };
+
   const boards: Array<IBoard> = boardsArray;
 
   return (
@@ -63,7 +75,15 @@ const Main: FC = () => {
                 {boards.map((board: IBoard) => {
                   const Component = board.component;
                   return (
-                    <Component tasks={filteredTask(board.id)} boardId={board.id} title={board.title} key={`$board-${board.id}`}/>
+                    <Component
+                      tasks={filteredTask(board.id)}
+                      droppedTask={droppedTask}
+                      setTask={handleSetTask}
+                      movedTask={handleMovedTask}
+                      boardId={board.id}
+                      title={board.title}
+                      key={`$board-${board.id}`}
+                    />
                   )})
                 }
               </section>

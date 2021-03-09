@@ -3,7 +3,15 @@ import {ITask} from "./task.interface";
 
 interface IBoard {
   id: number,
-  component: FC<{tasks: Array<ITask>, boardId: number, title: string, key: string}>,
+  component: FC<{
+    tasks: Array<ITask>,
+    droppedTask: ITask,
+    setTask(ITask):void,
+    movedTask(string): void,
+    boardId: number,
+    title: string,
+    key: string
+  }>,
   title: string
 }
 

@@ -1,5 +1,4 @@
 import React, {ChangeEvent, DragEvent, FC, useState, memo} from 'react';
-import PropTypes from 'prop-types';
 
 // styles
 import classnames from "classnames";
@@ -12,10 +11,10 @@ import {ITask} from "../../../interfaces/task.interface";
 interface ITaskItem extends ICommonTaskItem {
   indentClassName: string
 }
-
-const TaskItem:FC<ITaskItem> = ({task, dragStart, dragEnd, indentClassName}) => {
+//{task, boardId, dragStart, dragEnd, drop, dragOver, indentClassName}
+const TaskItem:FC<ITaskItem> = (props) => {
   const [isTaskEdit, toggleEditTask] = useState<boolean>(false);
-  const [taskTitle, setTaskTitle] = useState<string>(task.title);
+  const [taskTitle, setTaskTitle] = useState<string>(props.task.title);
 
   const handleSetTaskTitle = (event: ChangeEvent<HTMLInputElement>) => {
     setTaskTitle(event.target.value);
@@ -29,25 +28,19 @@ const TaskItem:FC<ITaskItem> = ({task, dragStart, dragEnd, indentClassName}) => 
     }
   };
 
-  const handleDragStart = (event: DragEvent<HTMLDivElement>, task: ITask) => {
-    dragStart(task);
-  };
-
-  const handleDragEnd = (event: DragEvent<HTMLDivElement>,task: ITask) => {
-    dragEnd(task);
-  };
-
   return (
     <div
       className={classnames(
         style.taskBoardItem,
         style.task,
-        indentClassName,
+        props.indentClassName,
         isTaskEdit ? style.taskActive : null
     )}
       draggable="true"
-      onDragStart={(event) => handleDragStart(event, task)}
-      onDragEnd={(event) => handleDragEnd(event, task)}
+      onDragStart={(event) => props.dragStart(props.task)}
+      onDragEnd={(event) => props.dragEnd(event)}
+      onDrop={(event) => props.drop(event, props.boardId)}
+      onDragOver={(event => props.dragOver(event))}
     >
       <div className={classnames(style.taskBody)}>
         {
@@ -60,7 +53,7 @@ const TaskItem:FC<ITaskItem> = ({task, dragStart, dragEnd, indentClassName}) => 
               onChange={handleSetTaskTitle}
             />
             :
-            <p className={classnames(style.taskView)}>{task.title}</p>
+            <p className={classnames(style.taskView)}>{props.task.title}</p>
         }
       </div>
       <button
