@@ -54,7 +54,7 @@ const Popup: FC<{message: IMessage}> = ({message}) => {
   return (
     <ul className={classnames(style.popupWrap)}>
       {messages.map(item =>
-        <PopupMessage message={item.message} className={getClassName(item)} key={`message-${item.type}-${item.message}`}/>
+        <PopupMessage message={item.message} className={getClassName(item)} key={`message-${item.type}-${Math.random()}`}/>
         )}
     </ul>
   );

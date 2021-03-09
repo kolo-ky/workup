@@ -36,6 +36,20 @@ const TaskList: FC<ITaskList> = (
   }) => {
   const dispatch = useDispatch();
 
+  const sendTask = (boardId: number) => {
+    let requestParams = {
+      id: droppedTask.id,
+      data: {
+        ...droppedTask,
+        boardId
+      }
+    };
+    // @ts-ignore
+    dispatch(fetchPutTask(requestParams)).then(() => {
+      movedTask(droppedTask.title);
+    });
+  };
+
   const dragStartHandler = (task: ITask) => {
     setTask(task);
   };
@@ -43,17 +57,7 @@ const TaskList: FC<ITaskList> = (
   const dropHandler = (event: DragEvent<HTMLDivElement>, boardId: number) => {
     event.preventDefault();
     if (droppedTask.boardId !== boardId) {
-      let requestParams = {
-        id: droppedTask.id,
-        data: {
-          ...droppedTask,
-          boardId
-        }
-      };
-      // @ts-ignore
-      dispatch(fetchPutTask(requestParams)).then(() => {
-        movedTask(droppedTask.title)
-      });
+      sendTask(boardId);
     }
   };
 
@@ -70,9 +74,15 @@ const TaskList: FC<ITaskList> = (
     event.preventDefault();
   };
 
+  const onDropBoardHandler = (event: DragEvent<HTMLDivElement>, boardId: number) => {
+    sendTask(boardId);
+  };
+
   return (
     <div
       className={classnames(style.taskBoardList)}
+      onDragOver={(event) => dragOverHandler(event)}
+      onDrop={(event) => onDropBoardHandler(event, boardId)}
     >
       {
         tasks.length
