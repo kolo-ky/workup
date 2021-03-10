@@ -1,0 +1,15 @@
+.registrationSection {
+  width: 350px;
+  position: relative;
+}
+
+.registrationTitle {
+  display: block;
+  margin-bottom: 15px;
+  color: #2f80ed;
+}
+
+.registrationSubTitle {
+  font-size: 20px;
+  padding-left: 5px;
+}

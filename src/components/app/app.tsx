@@ -14,7 +14,8 @@ import {MainScreen} from '../screens/main-screen/';
 import {LoginScreen} from '../screens/login-screen';
 import {ProfileScreen} from "../screens/pfofile-screen";
 import {NotFoundScreen} from '../screens/notfound-screen';
-import {AuthScreen} from "../screens/auth-screen/auth-screen";
+import {AuthScreen} from "../screens/auth-screen";
+import {RegistrationScreen} from "../screens/registration-screen";
 import PrivateRoute from "../private-route/private-route";
 
 // routes
@@ -41,6 +42,7 @@ const App: FC = () => {
       <Switch>
         <PrivateRoute path={routes(`home`)} exact component={MainScreen}/>
         <Route path={routes(`login`)} exact component={LoginScreen} />
+        <Route path={routes(`registration`)} exact component={RegistrationScreen} />
         <PrivateRoute path={routes(`profile`)} exact component={ProfileScreen}/>
         <Route path="*" component={NotFoundScreen}/>
       </Switch>

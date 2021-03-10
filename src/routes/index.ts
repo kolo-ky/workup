@@ -3,7 +3,8 @@ const routes = (path: string): string => {
     home: '/',
     login: '/login',
     auth: '/auth',
-    profile: '/profile'
+    profile: '/profile',
+    registration: `/registration`
   };
 
   return to[path];

@@ -20,3 +20,7 @@ export const findUserApi = (email) => {
 export const logoutUserApi = (id) => {
   return api.patch(`/users/${id}`, {authorized: false});
 };
+
+export const registrationUserApi = (params) => {
+  return api.post(`/users`, params);
+};

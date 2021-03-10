@@ -1,11 +1,15 @@
-import React, {FC, useState} from "react";
+import React, {FC} from "react";
 import {Link, useHistory} from "react-router-dom";
+
+// types
+import {IUserForm} from "../../../interfaces/user-form.interface";
 
 // routes
 import {routes} from "../../../routes";
 
 // components
 import {ServiceLayout} from "../../layouts/service-layout";
+import {UserForm} from "../../user-form";
 
 // redux
 import {useDispatch} from "react-redux";
@@ -18,25 +22,14 @@ import style from './login.module.css';
 import classnames from 'classnames';
 
 const Login: FC = () => {
-  const [loginForm, setLoginForm] = useState({email: '', password: ''});
   const dispatch = useDispatch();
   const history = useHistory();
+  const buttonTitle = 'Войти';
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSend = (userForm: IUserForm) => {
     // @ts-ignore
-    dispatch(fetchLogin(loginForm)).then(() => {
+    dispatch(fetchLogin(userForm)).then(() => {
       history.push(routes(`home`));
-    });
-  };
-
-  const handleChange = (event) => {
-    event.persist();
-    setLoginForm((prevState) => {
-      return {
-        ...prevState,
-        [event.target.id]: event.target.value
-      };
     });
   };
 
@@ -44,35 +37,9 @@ const Login: FC = () => {
     <ServiceLayout>
       <section className={classnames(style.loginSection)}>
         <h1 className={classnames(style.loginTitle)}>WorkUp</h1>
-        <form action="#" className={classnames(style.loginForm)} aria-label="Форма авторизации" onSubmit={(event) => handleSubmit(event)}>
-          <label htmlFor="login">Логин</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="Ваш почтовый адрес..."
-            value={loginForm.email}
-            onChange={(event) => handleChange(event)}
-            required
-          />
-
-          <label htmlFor="password">Пароль</label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Ваш пароль..."
-            value={loginForm.password}
-            onChange={(event) => handleChange(event)}
-            required
-          />
-
-          <button className={classnames(style.loginButton)} type="submit">
-            <span>Войти</span>
-          </button>
-        </form>
+        <UserForm sendUserData={handleSend} buttonTitle={buttonTitle}/>
         <p>
-          <Link className={classnames(style.authLink)} to={routes('auth')}>В первый раз? Зарегистрироваться</Link>
+          <Link className={classnames(style.authLink)} to={routes('registration')}>В первый раз? Зарегистрироваться</Link>
         </p>
       </section>
     </ServiceLayout>
