@@ -1,5 +1,5 @@
 import React, {FC, useEffect} from 'react';
-import {BrowserRouter, useHistory, Route, Switch} from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {useDispatch, useSelector} from "react-redux";
 
 // actions
@@ -28,7 +28,7 @@ const App: FC = () => {
   useEffect(() => {
     // @ts-ignore
     dispatch(fetchCheckAuth(user)).then(() => {
-      dispatch(fetchTasks());
+      dispatch(fetchTasks(user));
     }).catch(() => {});
   }, []);
 

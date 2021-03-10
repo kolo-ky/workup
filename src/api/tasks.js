@@ -1,8 +1,8 @@
 // axios instance
 import {api} from "../axios";
 
-export const getTasksApi = () => {
-  return api.get(`/tasks`);
+export const getTasksApi = (userId) => {
+  return api.get(`/tasks?userId=${userId}`);
 };
 
 export const addTaskApi = (params) => {

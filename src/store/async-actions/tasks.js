@@ -4,9 +4,9 @@ import {getTasksApi, addTaskApi, putTaskApi} from "../../api/tasks";
 // actions
 import {toggleLoading, setTasksAction, addTaskAction, moveTaskAction} from "../actions/tasks";
 
-export const fetchTasks = () => (dispatch, _getState) => {
+export const fetchTasks = (user) => (dispatch, _getState) => {
   dispatch(toggleLoading());
-  getTasksApi().then((response) => {
+  getTasksApi(user.id).then((response) => {
     dispatch(setTasksAction(response.data));
     dispatch(toggleLoading());
   });

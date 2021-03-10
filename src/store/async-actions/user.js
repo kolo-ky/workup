@@ -24,9 +24,11 @@ export const fetchLogin = (userData) => (dispatch, _getState) => {
   return findUserApi(userData.email).then((response) => {
     return loginUserApi(response.data[0].id).then(() => {
       const [user] = response.data;
+
       dispatch(setUserAction({id: Number(user.id), email: userData.email}));
       dispatch(requiredAuthAction(true));
-      dispatch(fetchTasks());
+      dispatch(fetchTasks(user));
+
       return Promise.resolve();
     });
   });
