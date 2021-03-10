@@ -77,7 +77,9 @@ const TaskList: FC<ITaskList> = (
   };
 
   const onDropBoardHandler = (event: DragEvent<HTMLDivElement>, boardId: number) => {
-    sendTask(boardId);
+    if (tasks.length === 0) {
+      sendTask(boardId);
+    }
   };
 
   return (
