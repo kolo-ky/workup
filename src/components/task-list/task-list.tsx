@@ -54,10 +54,12 @@ const TaskList: FC<ITaskList> = (
     setTask(task);
   };
 
-  const dropHandler = (event: DragEvent<HTMLDivElement>, boardId: number) => {
+  const dropHandler = (event: DragEvent<HTMLDivElement>, task: ITask, boardId: number) => {
     event.preventDefault();
     if (droppedTask.boardId !== boardId) {
       sendTask(boardId);
+    } else {
+      console.log('dropped on self board', task);
     }
   };
 

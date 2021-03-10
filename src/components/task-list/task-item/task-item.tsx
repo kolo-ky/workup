@@ -6,12 +6,11 @@ import style from "../../../assets/common-styles/comon.style.css";
 
 // types
 import type {ICommonTaskItem} from "../../../interfaces/common-task-item.interface";
-import {ITask} from "../../../interfaces/task.interface";
 
 interface ITaskItem extends ICommonTaskItem {
   indentClassName: string
 }
-//{task, boardId, dragStart, dragEnd, drop, dragOver, indentClassName}
+
 const TaskItem:FC<ITaskItem> = (props) => {
   const [isTaskEdit, toggleEditTask] = useState<boolean>(false);
   const [taskTitle, setTaskTitle] = useState<string>(props.task.title);
@@ -39,7 +38,7 @@ const TaskItem:FC<ITaskItem> = (props) => {
       draggable="true"
       onDragStart={(event) => props.dragStart(props.task)}
       onDragEnd={(event) => props.dragEnd(event)}
-      onDrop={(event) => props.drop(event, props.boardId)}
+      onDrop={(event) => props.drop(event, props.task, props.boardId)}
       onDragOver={(event => props.dragOver(event))}
     >
       <div className={classnames(style.taskBody)}>

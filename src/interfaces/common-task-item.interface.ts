@@ -7,7 +7,7 @@ interface ICommonTaskItem {
   key: string,
   dragStart(task: ITask):void,
   dragEnd(event: DragEvent<HTMLDivElement>):void
-  drop(event: DragEvent<HTMLDivElement>, boardId: number):void,
+  drop(event: DragEvent<HTMLDivElement>, task: ITask, boardId: number):void,
   dragOver(event: DragEvent<HTMLDivElement>):void
 }
 
