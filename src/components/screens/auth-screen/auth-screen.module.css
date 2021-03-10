@@ -1,0 +1,10 @@
+.authSection {
+  width: 350px;
+}
+
+.authTitle {
+  display: block;
+  margin-bottom: 15px;
+  color: #2f80ed;
+  font-size: 28px;
+}

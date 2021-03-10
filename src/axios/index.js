@@ -1,13 +1,10 @@
 // axios
 import axios from "axios";
 
-const httpCode = {
-  UNAUTHORIZED: 401,
-  BAD_REQUEST: 400,
-  NOT_FOUND: 404
-};
+// actions
+import {requiredAuthAction} from "../store/actions/user";
 
-const createApi = () => {
+const createApi = (onAuthorized) => {
   const api = axios.create({
     baseURL: `http://localhost:3000`,
     timeout: 5000,
@@ -17,12 +14,7 @@ const createApi = () => {
   const onSuccess = (response) => response;
 
   const onFail = (error) => {
-    if (error.status === httpCode.UNAUTHORIZED) {
-      console.error(error);
-
-      throw error;
-    }
-
+    onAuthorized();
     throw error;
   };
 
@@ -31,4 +23,4 @@ const createApi = () => {
   return api;
 };
 
-export const api = createApi();
+export const api = createApi(() => requiredAuthAction(false));
