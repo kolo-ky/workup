@@ -23,6 +23,8 @@ Divide and rule.
 * React-router
 * TypeScript
 * Redux
+* Thunk
+* Axios
 
 Сервер
 -----------------------------------
