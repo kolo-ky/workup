@@ -1,5 +1,4 @@
 import React, {FC, Fragment, useState} from "react";
-import {createPortal} from "react-dom";
 
 // redux
 import {useSelector, useDispatch} from "react-redux";
