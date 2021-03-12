@@ -20,10 +20,10 @@
 .tabItemActive:after {
   display: block;
   width: 100%;
-  height: 3px;
+  height: 5px;
   content: '';
   background-color: #65b670;
   position: absolute;
-  bottom: -2px;
+  bottom: -3px;
   left: 0;
 }
