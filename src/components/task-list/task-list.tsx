@@ -5,7 +5,7 @@ import classnames from "classnames";
 import style from "../../assets/common-styles/comon.style.css";
 
 // proxy
-import {TaskItemProxy} from '../../proxy';
+import {TaskItemProxy} from '../../proxy/task-item-proxy';
 
 // type
 import type {ITask} from "../../interfaces/task.interface";

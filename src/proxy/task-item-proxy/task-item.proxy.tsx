@@ -2,12 +2,12 @@ import React, {FC} from "react";
 import PropTypes from "prop-types";
 
 // components
-import {TaskItem} from '../components/task-list/task-item';
+import {TaskItem} from '../../components/task-list/task-item';
 
 // style
-import style from "../assets/common-styles/comon.style.css";
+import style from "../../assets/common-styles/comon.style.css";
 
-import type {ICommonTaskItem} from '../interfaces/common-task-item.interface';
+import type {ICommonTaskItem} from '../../interfaces/common-task-item.interface';
 
 enum TaskColor {
   taskBacklog,

@@ -1,9 +1,7 @@
 import React, {FC} from 'react';
 
-interface IMessage {
-  className: string,
-  message: string
-}
+// types
+import {IMessage} from "../../interfaces/message.interface";
 
 const PopupMessage: FC<IMessage> = ({className, message}) => {
   return (

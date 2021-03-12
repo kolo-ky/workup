@@ -1,4 +1,5 @@
 import React, {FC, Fragment, useState} from "react";
+import {createPortal} from "react-dom";
 
 // redux
 import {useSelector, useDispatch} from "react-redux";
@@ -22,7 +23,7 @@ import {AddTask} from "../../add-task";
 import boardsArray from '../../boards/boards';
 import {MainLayout} from "../../layouts/main-layout";
 import {Loading} from "../../loading";
-import {Popup} from "../../popup";
+import {PopupProxy} from "../../../proxy/popup-proxy";
 
 const Main: FC = () => {
   const dispatch = useDispatch();
@@ -97,7 +98,7 @@ const Main: FC = () => {
                   )})
                 }
               </section>
-              <Popup message={popupMessage} />
+              <PopupProxy message={popupMessage} />
            </Fragment>)}
     </MainLayout>
   );
