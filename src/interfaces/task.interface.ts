@@ -3,7 +3,8 @@ interface ITask {
   title: string,
   boardId: number,
   statusId: number,
-  order: number
+  order: number,
+  userId: number
 }
 
 export type {ITask}

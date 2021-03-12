@@ -31,13 +31,26 @@
       "statusId": 0,
       "order": 0,
       "userId": 1
+    },
+    {
+      "id": 1615565348113,
+      "title": "Тестовая",
+      "boardId": 0,
+      "statusId": 0,
+      "order": 0,
+      "userId": 1615565334105
     }
   ],
   "users": [
     {
       "id": 1,
-      "authorized": false,
+      "authorized": true,
       "email": "kolo-ky@yandex.ru"
+    },
+    {
+      "id": 1615565334105,
+      "authorized": false,
+      "email": "test@yandex.ru"
     }
   ]
 }

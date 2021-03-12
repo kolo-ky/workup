@@ -5,6 +5,12 @@ import style from './add-task.module.css';
 import buttonStyle from '../../assets/common-styles/comon.style.css';
 import classnames from 'classnames';
 
+//redux
+import {useSelector} from "react-redux";
+
+// selectors
+import {getUser} from "../../store/reducers/user-reducer/selectors";
+
 // icons
 import icons from '../../assets/icons/icons';
 
@@ -17,6 +23,7 @@ interface IAddTask {
 
 const AddTask: FC<IAddTask> = ({addTask}) => {
   const [taskTitle, setTask] = useState<string>('');
+  const user = useSelector((state) => getUser(state));
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setTask(event.target.value);
@@ -29,7 +36,8 @@ const AddTask: FC<IAddTask> = ({addTask}) => {
       title: taskTitle,
       boardId: 0,
       statusId: 0,
-      order: 0
+      order: 0,
+      userId: user.id
     });
     setTask('');
   };
