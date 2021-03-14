@@ -36,6 +36,13 @@ const TaskList: FC<ITaskList> = (
   }) => {
   const dispatch = useDispatch();
 
+  /*
+    todo отделить синхронные экшены от асинхронных
+    todo при действиях пользователя с задачами складывать измененные задачи в массив
+    todo отправлять массивы в асинхронный экшн
+    todo пока промисы по одному массиву не закончены, новую партию не отправлять на сервер
+    --- таким образом я создам очереди и сервер будет обновляться корректно
+  */
   const sendTaskToNewBoard = (boardId: number, task?: ITask) => {
     let requestParams = {
       id: droppedTask.id,
