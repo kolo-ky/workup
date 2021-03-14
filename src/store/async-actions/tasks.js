@@ -27,7 +27,7 @@ export const fetchPutTask = (params) => (dispatch, getState) => {
   const {TASKS} = getState();
 
   const tasksPromises = TASKS.tasks
-    .filter((item) => item.boardId === params.newTask.boardId)
+    .filter((task) => task.boardId === params.newTask.boardId)
     .map((task) => putTaskApi({id: task.id, data: task}));
 
   return Promise.all(tasksPromises).then(() => {
