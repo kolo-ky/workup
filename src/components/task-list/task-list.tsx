@@ -36,14 +36,32 @@ const TaskList: FC<ITaskList> = (
   }) => {
   const dispatch = useDispatch();
 
-  const sendTask = (boardId: number) => {
+  const sendTaskToNewBoard = (boardId: number, task?: ITask) => {
+    let requestParams = {
+      id: droppedTask.id,
+      newTask: {
+        ...droppedTask,
+        order: task.order,
+        boardId
+      },
+    };
+
+    // @ts-ignore
+    dispatch(fetchPutTask(requestParams)).then(() => {
+      movedTask(droppedTask.title);
+    });
+  };
+
+  const sendTaskToSelfBoard = (boardId: number, task?: ITask) => {
     let requestParams = {
       id: droppedTask.id,
       data: {
         ...droppedTask,
+        order: task.order,
         boardId
       }
     };
+
     // @ts-ignore
     dispatch(fetchPutTask(requestParams)).then(() => {
       movedTask(droppedTask.title);
@@ -57,9 +75,9 @@ const TaskList: FC<ITaskList> = (
   const dropHandler = (event: DragEvent<HTMLDivElement>, task: ITask, boardId: number) => {
     event.preventDefault();
     if (droppedTask.boardId !== boardId) {
-      sendTask(boardId);
+      sendTaskToNewBoard(boardId, task);
     } else {
-      console.log('dropped on self board', task);
+      sendTaskToSelfBoard(boardId, task);
     }
   };
 
@@ -78,7 +96,7 @@ const TaskList: FC<ITaskList> = (
 
   const onDropBoardHandler = (event: DragEvent<HTMLDivElement>, boardId: number) => {
     if (tasks.length === 0) {
-      sendTask(boardId);
+      sendTaskToNewBoard(boardId);
     }
   };
 

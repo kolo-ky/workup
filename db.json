@@ -21,6 +21,14 @@
       "title": "Задача номер 3",
       "boardId": 1,
       "statusId": 0,
+      "order": 2,
+      "userId": 1
+    },
+    {
+      "id": 222,
+      "title": "Покушать",
+      "boardId": 1,
+      "statusId": 0,
       "order": 0,
       "userId": 1
     },

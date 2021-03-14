@@ -2,7 +2,7 @@
 import {getTasksApi, addTaskApi, putTaskApi} from "../../api/tasks";
 
 // actions
-import {toggleLoading, setTasksAction, addTaskAction, moveTaskAction} from "../actions/tasks";
+import {toggleLoading, setTasksAction, addTaskAction, moveTaskAction, reorderTaskAction} from "../actions/tasks";
 
 export const fetchTasks = (user) => (dispatch, _getState) => {
   dispatch(toggleLoading());
@@ -21,11 +21,18 @@ export const fetchAddTask = (params) => (dispatch) => {
   });
 };
 
-export const fetchPutTask = (params) => (dispatch) => {
-  dispatch(moveTaskAction(params.data));
-  return putTaskApi(params).then(() => {
+export const fetchPutTask = (params) => (dispatch, getState) => {
+  dispatch(moveTaskAction(params.newTask));
+  dispatch(reorderTaskAction(params.newTask));
+  const {TASKS} = getState();
+
+  const tasksPromises = TASKS.tasks
+    .filter((item) => item.boardId === params.newTask.boardId)
+    .map((task) => putTaskApi({id: task.id, data: task}));
+
+  return Promise.all(tasksPromises).then(() => {
     return Promise.resolve();
-  }).catch(() => {
-    return Promise.reject();
+  }).catch((error) => {
+    throw error;
   });
 };
