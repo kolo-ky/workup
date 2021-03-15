@@ -2,6 +2,7 @@
 export const TaskActions = {
   SET_TASKS: `SET_TASKS`,
   ADD_TASKS: `ADD_TASKS`,
+  UPDATE_TASK: `UPDATE_TASK`,
   MOVE_TASK: `MOVE_TASK`,
   ADD_SNAPSHOT: `ADD_SNAPSHOT`,
   REMOVE_SNAPSHOT: `REMOVE_SNAPSHOT`,
@@ -33,6 +34,13 @@ export const moveTaskAction = (payload) => {
 export const reorderTaskAction = (payload) => {
   return {
     type: TaskActions.REORDER_TASKS,
+    payload
+  };
+};
+
+export const updateTaskAction = (payload) => {
+  return {
+    type: TaskActions.UPDATE_TASK,
     payload
   };
 };

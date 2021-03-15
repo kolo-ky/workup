@@ -11,6 +11,14 @@ const taskReducer = (state = initialState, action) => {
   switch (action.type) {
     case TaskActions.SET_TASKS:
       return {...state, tasks: action.payload};
+    case TaskActions.UPDATE_TASK:
+      return {...state, tasks: state.tasks.map((task) => {
+        if (task.id === action.payload.id) {
+          task.title = action.payload.data.title;
+        }
+
+        return task;
+      })};
     case TaskActions.REORDER_TASKS:
       const task = action.payload;
       const reorderedTasks = state.tasks.map((item) => {
@@ -19,6 +27,7 @@ const taskReducer = (state = initialState, action) => {
             item.order += 1;
           }
         }
+
         return item;
       });
       return {...state, tasks: [...reorderedTasks]};
