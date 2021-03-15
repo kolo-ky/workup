@@ -10,12 +10,8 @@ import {TaskItemProxy} from '../../proxy/task-item-proxy';
 // type
 import type {ITask} from "../../interfaces/task.interface";
 
-// redux
-import {useDispatch} from "react-redux";
-
-// actions
-import {fetchSnapshot} from '../../store/async-actions/tasks';
-import {moveTaskAction, reorderTaskAction, addSnapshotAction} from "../../store/actions/tasks";
+// hooks
+import {useSnapShot} from "../../hooks/use-snapshot";
 
 interface ITaskList {
   tasks: Array<ITask>,
@@ -35,7 +31,7 @@ const TaskList: FC<ITaskList> = (
     setTask,
     movedTask,
   }) => {
-  const dispatch = useDispatch();
+  const {withLocalState, sendSnapShot} = useSnapShot();
 
   const sendTaskToBoard = (boardId: number, task?: ITask) => {
     const newTask = {
@@ -44,13 +40,8 @@ const TaskList: FC<ITaskList> = (
       boardId
     };
 
-    dispatch(moveTaskAction(newTask));
-    dispatch(reorderTaskAction(newTask));
-
-    movedTask(droppedTask.title);
-
-    dispatch(addSnapshotAction(JSON.parse(JSON.stringify([...tasks, newTask]))));
-    dispatch(fetchSnapshot());
+    withLocalState(newTask, () => movedTask(droppedTask.title));
+    sendSnapShot(tasks, newTask)
   };
 
   const dragStartHandler = (task: ITask) => {

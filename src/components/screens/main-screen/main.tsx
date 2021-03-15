@@ -4,7 +4,10 @@ import React, {FC, Fragment, useState} from "react";
 import {useSelector, useDispatch} from "react-redux";
 
 // actions
-import {fetchAddTask, fetchSnapshot} from '../../../store/async-actions/tasks';
+import {fetchAddTask} from '../../../store/async-actions/tasks';
+
+// hooks
+import {useSnapShot} from "../../../hooks/use-snapshot";
 
 // selectors
 import {getTasks, loading} from '../../../store/reducers/task-reducer/selectors';
@@ -31,6 +34,7 @@ const Main: FC = () => {
   const [popupMessage, setMessage] = useState({});
   const [droppedTask, setDroppedTask] = useState(null);
   const isLoading = useSelector(state => loading(state));
+  const {withLocalState, sendSnapShot} = useSnapShot();
 
   const filteredTask = (boardId: number): Array<ITask> => {
     return tasks.filter(task => task.boardId === boardId);
@@ -60,10 +64,8 @@ const Main: FC = () => {
       });
     });
 
-    dispatch(moveTaskAction(task));
-    dispatch(reorderTaskAction(task));
-    dispatch(addSnapshotAction(JSON.parse(JSON.stringify([...tasks, task]))));
-    dispatch(fetchSnapshot());
+    withLocalState(task);
+    sendSnapShot(tasks, task);
   };
 
   const handleMovedTask = (title: string) => {

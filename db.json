@@ -5,7 +5,7 @@
       "boardId": 0,
       "title": "Задача номер 111",
       "statusId": 0,
-      "order": 1,
+      "order": 3,
       "userId": 1
     },
     {
@@ -13,7 +13,7 @@
       "title": "Задача номер 2",
       "boardId": 1,
       "statusId": 0,
-      "order": 0,
+      "order": 2,
       "userId": 1
     },
     {
@@ -21,7 +21,7 @@
       "title": "Задача номер 3",
       "boardId": 1,
       "statusId": 0,
-      "order": 1,
+      "order": 3,
       "userId": 1
     },
     {
@@ -54,6 +54,14 @@
       "boardId": 0,
       "statusId": 0,
       "order": 2,
+      "userId": "1"
+    },
+    {
+      "id": 1615847469797,
+      "title": "еще тест",
+      "boardId": 0,
+      "statusId": 0,
+      "order": 4,
       "userId": "1"
     }
   ],
