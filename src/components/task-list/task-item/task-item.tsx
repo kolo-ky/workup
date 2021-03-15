@@ -52,7 +52,7 @@ const TaskItem:FC<ITaskItem> = (props) => {
               onChange={handleSetTaskTitle}
             />
             :
-            <p className={classnames(style.taskView)}>{props.task.title} order: {props.task.order}</p>
+            <p className={classnames(style.taskView)}>{props.task.title}</p>
         }
       </div>
       <button

@@ -3,6 +3,8 @@ export const TaskActions = {
   SET_TASKS: `SET_TASKS`,
   ADD_TASKS: `ADD_TASKS`,
   MOVE_TASK: `MOVE_TASK`,
+  ADD_SNAPSHOT: `ADD_SNAPSHOT`,
+  REMOVE_SNAPSHOT: `REMOVE_SNAPSHOT`,
   REORDER_TASKS: `REORDER_TASKS`,
   TOGGLE_LOADING: `TOGGLE_LOADING`
 };
@@ -32,6 +34,19 @@ export const reorderTaskAction = (payload) => {
   return {
     type: TaskActions.REORDER_TASKS,
     payload
+  };
+};
+
+export const addSnapshotAction = (payload) => {
+  return {
+    type: TaskActions.ADD_SNAPSHOT,
+    payload
+  };
+};
+
+export const removeSnapshotAction = () => {
+  return {
+    type: TaskActions.REMOVE_SNAPSHOT
   };
 };
 

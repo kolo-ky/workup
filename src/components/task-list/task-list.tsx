@@ -14,7 +14,8 @@ import type {ITask} from "../../interfaces/task.interface";
 import {useDispatch} from "react-redux";
 
 // actions
-import {fetchPutTask} from '../../store/async-actions/tasks';
+import {fetchSnapshot} from '../../store/async-actions/tasks';
+import {moveTaskAction, reorderTaskAction, addSnapshotAction} from "../../store/actions/tasks";
 
 interface ITaskList {
   tasks: Array<ITask>,
@@ -36,43 +37,20 @@ const TaskList: FC<ITaskList> = (
   }) => {
   const dispatch = useDispatch();
 
-  /*
-    todo отделить синхронные экшены от асинхронных
-    todo при действиях пользователя с задачами складывать измененные задачи в массив
-    todo отправлять массивы в асинхронный экшн
-    todo пока промисы по одному массиву не закончены, новую партию не отправлять на сервер
-    --- таким образом я создам очереди и сервер будет обновляться корректно
-  */
-  const sendTaskToNewBoard = (boardId: number, task?: ITask) => {
-    let requestParams = {
-      id: droppedTask.id,
-      newTask: {
-        ...droppedTask,
-        order: task.order,
-        boardId
-      },
+  const sendTaskToBoard = (boardId: number, task?: ITask) => {
+    const newTask = {
+      ...droppedTask,
+      order: task ? task.order : 0,
+      boardId
     };
 
-    // @ts-ignore
-    dispatch(fetchPutTask(requestParams)).then(() => {
-      movedTask(droppedTask.title);
-    });
-  };
+    dispatch(moveTaskAction(newTask));
+    dispatch(reorderTaskAction(newTask));
 
-  const sendTaskToSelfBoard = (boardId: number, task?: ITask) => {
-    let requestParams = {
-      id: droppedTask.id,
-      data: {
-        ...droppedTask,
-        order: task.order,
-        boardId
-      }
-    };
+    movedTask(droppedTask.title);
 
-    // @ts-ignore
-    dispatch(fetchPutTask(requestParams)).then(() => {
-      movedTask(droppedTask.title);
-    });
+    dispatch(addSnapshotAction(JSON.parse(JSON.stringify([...tasks, newTask]))));
+    dispatch(fetchSnapshot());
   };
 
   const dragStartHandler = (task: ITask) => {
@@ -81,11 +59,7 @@ const TaskList: FC<ITaskList> = (
 
   const dropHandler = (event: DragEvent<HTMLDivElement>, task: ITask, boardId: number) => {
     event.preventDefault();
-    if (droppedTask.boardId !== boardId) {
-      sendTaskToNewBoard(boardId, task);
-    } else {
-      sendTaskToSelfBoard(boardId, task);
-    }
+    sendTaskToBoard(boardId, task);
   };
 
   const dragLeaveHandler = (event: DragEvent<HTMLDivElement>) => {
@@ -103,7 +77,7 @@ const TaskList: FC<ITaskList> = (
 
   const onDropBoardHandler = (event: DragEvent<HTMLDivElement>, boardId: number) => {
     if (tasks.length === 0) {
-      sendTaskToNewBoard(boardId);
+      sendTaskToBoard(boardId);
     }
   };
 

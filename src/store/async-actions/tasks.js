@@ -2,7 +2,7 @@
 import {getTasksApi, addTaskApi, putTaskApi} from "../../api/tasks";
 
 // actions
-import {toggleLoading, setTasksAction, addTaskAction, moveTaskAction, reorderTaskAction} from "../actions/tasks";
+import {toggleLoading, setTasksAction, addTaskAction, removeSnapshotAction} from "../actions/tasks";
 
 export const fetchTasks = (user) => (dispatch, _getState) => {
   dispatch(toggleLoading());
@@ -21,18 +21,15 @@ export const fetchAddTask = (params) => (dispatch) => {
   });
 };
 
-export const fetchPutTask = (params) => (dispatch, getState) => {
-  dispatch(moveTaskAction(params.newTask));
-  dispatch(reorderTaskAction(params.newTask));
+export const fetchSnapshot = () => async (dispatch, getState) => {
   const {TASKS} = getState();
-
-  const tasksPromises = TASKS.tasks
-    .filter((task) => task.boardId === params.newTask.boardId)
-    .map((task) => putTaskApi({id: task.id, data: task}));
-
-  return Promise.all(tasksPromises).then(() => {
-    return Promise.resolve();
-  }).catch((error) => {
-    throw error;
-  });
+  // eslint-disable-next-line no-unused-vars
+  for (const snapshot of TASKS.snapshots) {
+    await Promise.all(
+        snapshot.map((task) => {
+          return putTaskApi({id: task.id, data: task});
+        })
+    );
+    dispatch(removeSnapshotAction());
+  }
 };

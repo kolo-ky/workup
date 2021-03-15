@@ -3,6 +3,7 @@ import {TaskActions} from "../../actions/tasks";
 
 const initialState = {
   tasks: [],
+  snapshots: [],
   loading: false
 };
 
@@ -32,6 +33,10 @@ const taskReducer = (state = initialState, action) => {
 
         return item;
       })};
+    case TaskActions.ADD_SNAPSHOT:
+      return {...state, snapshots: [...state.snapshots, action.payload]};
+    case TaskActions.REMOVE_SNAPSHOT:
+      return {...state, snapshots: state.snapshots.slice(1)};
     case TaskActions.TOGGLE_LOADING:
       return {...state, loading: !state.loading};
   }

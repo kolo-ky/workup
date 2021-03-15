@@ -5,7 +5,7 @@
       "boardId": 0,
       "title": "Задача номер 1",
       "statusId": 0,
-      "order": 0,
+      "order": 1,
       "userId": 1
     },
     {
@@ -13,7 +13,7 @@
       "title": "Задача номер 2",
       "boardId": 1,
       "statusId": 0,
-      "order": 1,
+      "order": 0,
       "userId": 1
     },
     {
@@ -21,15 +21,15 @@
       "title": "Задача номер 3",
       "boardId": 1,
       "statusId": 0,
-      "order": 2,
+      "order": 1,
       "userId": 1
     },
     {
       "id": 222,
       "title": "Покушать",
-      "boardId": 1,
+      "boardId": 2,
       "statusId": 0,
-      "order": 0,
+      "order": 5,
       "userId": 1
     },
     {
@@ -37,7 +37,7 @@
       "title": "Задача номер 4",
       "boardId": 2,
       "statusId": 0,
-      "order": 0,
+      "order": 7,
       "userId": 1
     },
     {
