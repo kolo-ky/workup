@@ -47,6 +47,14 @@
       "statusId": 0,
       "order": 0,
       "userId": 1615565334105
+    },
+    {
+      "id": 1615830680768,
+      "title": "тест",
+      "boardId": 0,
+      "statusId": 0,
+      "order": 2,
+      "userId": "1"
     }
   ],
   "users": [

@@ -4,7 +4,7 @@ import React, {FC, Fragment, useState} from "react";
 import {useSelector, useDispatch} from "react-redux";
 
 // actions
-import {fetchAddTask} from '../../../store/async-actions/tasks';
+import {fetchAddTask, fetchSnapshot} from '../../../store/async-actions/tasks';
 
 // selectors
 import {getTasks, loading} from '../../../store/reducers/task-reducer/selectors';
@@ -23,6 +23,7 @@ import boardsArray from '../../boards/boards';
 import {MainLayout} from "../../layouts/main-layout";
 import {Loading} from "../../loading";
 import {PopupProxy} from "../../../proxy/popup-proxy";
+import {addSnapshotAction, moveTaskAction, reorderTaskAction} from "../../../store/actions/tasks";
 
 const Main: FC = () => {
   const dispatch = useDispatch();
@@ -58,6 +59,11 @@ const Main: FC = () => {
         message: 'Ошибка сервера'
       });
     });
+
+    dispatch(moveTaskAction(task));
+    dispatch(reorderTaskAction(task));
+    dispatch(addSnapshotAction(JSON.parse(JSON.stringify([...tasks, task]))));
+    dispatch(fetchSnapshot());
   };
 
   const handleMovedTask = (title: string) => {
