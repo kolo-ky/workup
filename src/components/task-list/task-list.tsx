@@ -9,18 +9,10 @@ import {TaskItemProxy} from '../../proxy/task-item-proxy';
 
 // type
 import type {ITask} from "../../interfaces/task.interface";
+import {ITaskList} from "../../interfaces/task-list.interface";
 
 // hooks
 import {useReorder} from "../../hooks/use-reorder";
-
-interface ITaskList {
-  tasks: Array<ITask>,
-  droppedTask: ITask,
-  setTask(task: ITask): void,
-  movedTask(title: string): void,
-  boardId: number,
-  children?: ReactNode
-}
 
 const TaskList: FC<ITaskList> = (
   {
