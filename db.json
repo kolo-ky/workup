@@ -2,10 +2,10 @@
   "tasks": [
     {
       "id": 0,
-      "boardId": 0,
+      "boardId": 1,
       "title": "Задача номер 111",
       "statusId": 0,
-      "order": 3,
+      "order": 5,
       "userId": 1
     },
     {
@@ -13,7 +13,7 @@
       "title": "Задача номер 2",
       "boardId": 1,
       "statusId": 0,
-      "order": 2,
+      "order": 6,
       "userId": 1
     },
     {
@@ -21,7 +21,7 @@
       "title": "Задача номер 3",
       "boardId": 1,
       "statusId": 0,
-      "order": 3,
+      "order": 7,
       "userId": 1
     },
     {
@@ -49,19 +49,11 @@
       "userId": 1615565334105
     },
     {
-      "id": 1615830680768,
-      "title": "тест",
+      "id": 1615928658467,
+      "title": "dcdcdcасасас",
       "boardId": 0,
       "statusId": 0,
-      "order": 2,
-      "userId": "1"
-    },
-    {
-      "id": 1615847469797,
-      "title": "еще тест",
-      "boardId": 0,
-      "statusId": 0,
-      "order": 4,
+      "order": 0,
       "userId": "1"
     }
   ],

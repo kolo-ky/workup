@@ -1,5 +1,4 @@
 import React, {FC} from "react";
-import PropTypes from 'prop-types';
 
 // styles
 import style from '../../../assets/common-styles/comon.style.css';
@@ -12,7 +11,6 @@ import {TaskEmpty} from "../../task-empty";
 
 // types
 import type {IBoards} from "../../../interfaces/boards.interface";
-
 
 interface IBacklog extends IBoards {}
 

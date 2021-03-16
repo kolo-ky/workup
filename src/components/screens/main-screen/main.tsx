@@ -5,6 +5,7 @@ import {useSelector, useDispatch} from "react-redux";
 
 // actions
 import {fetchAddTask} from '../../../store/async-actions/tasks';
+import {setMessageAction} from "../../../store/actions/messages";
 
 // hooks
 import {useReorder} from "../../../hooks/use-reorder";
@@ -26,12 +27,10 @@ import boardsArray from '../../boards/boards';
 import {MainLayout} from "../../layouts/main-layout";
 import {Loading} from "../../loading";
 import {PopupProxy} from "../../../proxy/popup-proxy";
-import {addSnapshotAction, moveTaskAction, reorderTaskAction} from "../../../store/actions/tasks";
 
 const Main: FC = () => {
   const dispatch = useDispatch();
   const tasks = useSelector(state => getTasks(state));
-  const [popupMessage, setMessage] = useState({});
   const [droppedTask, setDroppedTask] = useState(null);
   const isLoading = useSelector(state => loading(state));
   const {withLocalState, sendSnapShot} = useReorder();
@@ -53,27 +52,20 @@ const Main: FC = () => {
   const handleAddTask = (task: ITask) => {
     // @ts-ignore
     dispatch(fetchAddTask(updateTasksOrder(task))).then(() => {
-      setMessage({
+      dispatch(setMessageAction({
         type: 'success',
         message: 'Задача добавлена'
-      });
+      }));
     }).catch(() => {
-      setMessage({
+      dispatch(setMessageAction({
         type: 'fail',
         message: 'Ошибка сервера'
-      });
+      }));
     });
 
     withLocalState(task);
     sendSnapShot(tasks, task);
   };
-
-  const handleMovedTask = (title: string) => {
-    setMessage({
-      type: 'success',
-      message: `Задача "${title}" перемещена`
-    });
-  }
 
   const handleSetTask = (task: ITask) => {
     setDroppedTask(task);
@@ -97,7 +89,6 @@ const Main: FC = () => {
                       tasks={filteredTask(board.id)}
                       droppedTask={droppedTask}
                       setTask={handleSetTask}
-                      movedTask={handleMovedTask}
                       boardId={board.id}
                       title={board.title}
                       key={`$board-${board.id}`}
@@ -105,7 +96,7 @@ const Main: FC = () => {
                   )})
                 }
               </section>
-              <PopupProxy message={popupMessage} />
+              <PopupProxy />
            </Fragment>)}
     </MainLayout>
   );

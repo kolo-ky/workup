@@ -1,5 +1,4 @@
 import React, {FC} from "react";
-import PropTypes from 'prop-types';
 
 // styles
 import style from '../../../assets/common-styles/comon.style.css';

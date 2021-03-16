@@ -10,7 +10,7 @@ const messageReducer = (state = initialState, action) => {
     case MessagesActions.SET_MESSAGE:
       return {...state, messages: [...state.messages, action.payload]};
     case MessagesActions.REMOVE_MESSAGE:
-      return state;
+      return {...state, messages: state.messages.slice(1)};
   }
   return state;
 };

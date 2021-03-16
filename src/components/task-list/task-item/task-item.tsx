@@ -12,6 +12,7 @@ import {fetchUpdateTask} from "../../../store/async-actions/tasks";
 
 // types
 import type {ICommonTaskItem} from "../../../interfaces/common-task-item.interface";
+import {setMessageAction} from "../../../store/actions/messages";
 
 interface ITaskItem extends ICommonTaskItem {
   indentClassName: string
@@ -32,6 +33,11 @@ const TaskItem:FC<ITaskItem> = (props) => {
       dispatch(fetchUpdateTask({id: props.task.id, data: {title:taskTitle}})).then(() => {
         toggleEditTask(false);
       });
+      dispatch(
+        setMessageAction({
+          type: 'success',
+          message: `Задача успешно изменена`
+        }));
     }
   };
 
@@ -52,7 +58,7 @@ const TaskItem:FC<ITaskItem> = (props) => {
         isTaskEdit ? style.taskActive : null
     )}
       draggable="true"
-      onDragStart={(event) => props.dragStart(props.task)}
+      onDragStart={() => props.dragStart(props.task)}
       onDragEnd={(event) => props.dragEnd(event)}
       onDrop={(event) => props.drop(event, props.task, props.boardId)}
       onDragOver={(event => props.dragOver(event))}

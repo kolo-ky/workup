@@ -5,7 +5,6 @@ interface ITaskList {
   tasks: Array<ITask>,
   droppedTask: ITask,
   setTask(task: ITask): void,
-  movedTask(title: string): void,
   boardId: number,
   children?: ReactNode
 }

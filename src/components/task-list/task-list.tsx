@@ -1,4 +1,4 @@
-import React, {FC, DragEvent, ReactNode} from 'react';
+import React, {FC, DragEvent} from 'react';
 
 // styles
 import classnames from "classnames";
@@ -13,6 +13,10 @@ import {ITaskList} from "../../interfaces/task-list.interface";
 
 // hooks
 import {useReorder} from "../../hooks/use-reorder";
+import {useDispatch} from "react-redux";
+
+// actions
+import {setMessageAction} from "../../store/actions/messages";
 
 const TaskList: FC<ITaskList> = (
   {
@@ -20,10 +24,10 @@ const TaskList: FC<ITaskList> = (
     droppedTask,
     boardId,
     children,
-    setTask,
-    movedTask,
+    setTask
   }) => {
   const {withLocalState, sendSnapShot} = useReorder();
+  const dispatch = useDispatch();
 
   const sendTaskToBoard = (boardId: number, task?: ITask) => {
     const newTask = {
@@ -32,8 +36,12 @@ const TaskList: FC<ITaskList> = (
       boardId
     };
 
-    withLocalState(newTask, () => movedTask(droppedTask.title));
-    sendSnapShot(tasks, newTask)
+    withLocalState(newTask, () => dispatch(
+      setMessageAction({
+        type: 'success',
+        message: `Задача ${droppedTask.title} перемещена`
+      })));
+    sendSnapShot(tasks, newTask);
   };
 
   const dragStartHandler = (task: ITask) => {

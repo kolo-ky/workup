@@ -1,4 +1,4 @@
-import React, {FC, useState, useEffect} from 'react';
+import React, {FC, useEffect} from 'react';
 
 // styles
 import classnames from "classnames";
@@ -6,6 +6,15 @@ import style from './popup.module.css';
 
 // components
 import {PopupMessage} from './popup-message';
+
+// redux
+import {useDispatch, useSelector} from "react-redux";
+
+// selectors
+import {getMessages} from "../../store/reducers/message-reducer/selectors";
+
+// actions
+import {removeMessageAction} from "../../store/actions/messages";
 
 interface IMessage {
   type?: string,
@@ -17,8 +26,9 @@ enum MessageTypes {
   fail = 'Fail',
 }
 
-const Popup: FC<{message: IMessage}> = ({message}) => {
-  const [messages, updateMessages] = useState([]);
+const Popup: FC = () => {
+  const dispatch = useDispatch();
+  const messages: Array<IMessage> = useSelector((state) => getMessages(state));
 
   let timer: any = null;
   const getClassName = (message: IMessage):string => {
@@ -26,22 +36,12 @@ const Popup: FC<{message: IMessage}> = ({message}) => {
   };
 
   const timerCallBack = (timer: number): void => {
-    const sliceCount: number = 1;
+    if (messages.length <= 1) {
+      clearTimeout(timer);
+    }
 
-    updateMessages((prevState) => {
-      if (prevState.length <= sliceCount) {
-        clearTimeout(timer);
-      }
-
-      return prevState.slice(sliceCount);
-    });
+    dispatch(removeMessageAction());
   };
-
-  useEffect(() => {
-    updateMessages((prevState) => {
-      return [...prevState, message]
-    });
-  }, [message]);
 
   useEffect(() => {
     if (messages.length) {

@@ -7,7 +7,6 @@ interface IBoard {
     tasks: Array<ITask>,
     droppedTask: ITask,
     setTask(ITask):void,
-    movedTask(string): void,
     boardId: number,
     title: string,
     key: string

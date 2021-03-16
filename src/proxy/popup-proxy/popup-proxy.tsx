@@ -7,12 +7,8 @@ import {Popup} from "../../components/popup";
 // types
 import {IMessage} from "../../interfaces/message.interface";
 
-interface IPopup {
-  message: IMessage
-}
-
-const PopupProxy: FC<IPopup> = (props) => {
-  return createPortal(<Popup {...props}/>, document.getElementById('popup'));
+const PopupProxy: FC = () => {
+  return createPortal(<Popup />, document.getElementById('popup'));
 };
 
 export {PopupProxy};
