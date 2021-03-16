@@ -2,7 +2,7 @@ import {addSnapshotAction, moveTaskAction, reorderTaskAction} from "../store/act
 import {fetchSnapshot} from "../store/async-actions/tasks";
 import {useDispatch} from "react-redux";
 
-export const useSnapShot = () => {
+export const useReorder = () => {
   const dispatch = useDispatch();
 
   function withLocalState (newTask, callback = undefined) {

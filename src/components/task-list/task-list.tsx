@@ -11,7 +11,7 @@ import {TaskItemProxy} from '../../proxy/task-item-proxy';
 import type {ITask} from "../../interfaces/task.interface";
 
 // hooks
-import {useSnapShot} from "../../hooks/use-snapshot";
+import {useReorder} from "../../hooks/use-reorder";
 
 interface ITaskList {
   tasks: Array<ITask>,
@@ -31,7 +31,7 @@ const TaskList: FC<ITaskList> = (
     setTask,
     movedTask,
   }) => {
-  const {withLocalState, sendSnapShot} = useSnapShot();
+  const {withLocalState, sendSnapShot} = useReorder();
 
   const sendTaskToBoard = (boardId: number, task?: ITask) => {
     const newTask = {

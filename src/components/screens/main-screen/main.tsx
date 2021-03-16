@@ -7,7 +7,7 @@ import {useSelector, useDispatch} from "react-redux";
 import {fetchAddTask} from '../../../store/async-actions/tasks';
 
 // hooks
-import {useSnapShot} from "../../../hooks/use-snapshot";
+import {useReorder} from "../../../hooks/use-reorder";
 
 // selectors
 import {getTasks, loading} from '../../../store/reducers/task-reducer/selectors';
@@ -34,7 +34,7 @@ const Main: FC = () => {
   const [popupMessage, setMessage] = useState({});
   const [droppedTask, setDroppedTask] = useState(null);
   const isLoading = useSelector(state => loading(state));
-  const {withLocalState, sendSnapShot} = useSnapShot();
+  const {withLocalState, sendSnapShot} = useReorder();
 
   const filteredTask = (boardId: number): Array<ITask> => {
     return tasks.filter(task => task.boardId === boardId);
