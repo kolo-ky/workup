@@ -11,6 +11,10 @@ export const determineStatus = (task: ITask, boardId: number): ITask => {
     if (task.boardId < key) {
       task[value] = null;
     }
+
+    if (task.boardId > key && !task[value]) {
+      task[value] = fns.getNow();
+    }
   });
 
   return task;

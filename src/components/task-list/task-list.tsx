@@ -8,7 +8,6 @@ import style from "../../assets/common-styles/comon.style.css";
 import {TaskItemProxy} from '../../proxy/task-item-proxy';
 
 // utils
-import {fns} from "../../utils/fns";
 import {determineStatus} from "../../utils/determine-status";
 
 // type
