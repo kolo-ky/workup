@@ -26,3 +26,9 @@ export default [
     title: `Корзина`
   }
 ];
+
+export const BoardAt = new Map([
+  [0, 'createdAt'],
+  [1, 'processAt'],
+  [2, 'doneAt'],
+]);

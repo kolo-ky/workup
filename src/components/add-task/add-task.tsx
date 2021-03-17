@@ -11,6 +11,9 @@ import {useSelector} from "react-redux";
 // selectors
 import {getUser} from "../../store/reducers/user-reducer/selectors";
 
+// utils
+import {fns} from "../../utils/fns";
+
 // icons
 import icons from '../../assets/icons/icons';
 
@@ -37,7 +40,10 @@ const AddTask: FC<IAddTask> = ({addTask}) => {
       boardId: 0,
       statusId: 0,
       order: 0,
-      userId: user.id
+      userId: user.id,
+      createdAt: fns.getNow(),
+      processAt: null,
+      doneAt: null
     });
     setTask('');
   };

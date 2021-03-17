@@ -36,8 +36,7 @@ const taskReducer = (state = initialState, action) => {
     case TaskActions.MOVE_TASK:
       return {...state, tasks: state.tasks.map((item) => {
         if (item.id === action.payload.id) {
-          item.boardId = action.payload.boardId;
-          item.order = action.payload.order;
+          item = {...item, ...action.payload};
         }
 
         return item;

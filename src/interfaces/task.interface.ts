@@ -4,7 +4,10 @@ interface ITask {
   boardId: number,
   statusId: number,
   order: number,
-  userId: number
+  userId: number,
+  createdAt: string | null,
+  processAt: string | null,
+  doneAt: string | null
 }
 
 export type {ITask}

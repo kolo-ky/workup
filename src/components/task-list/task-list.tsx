@@ -7,6 +7,10 @@ import style from "../../assets/common-styles/comon.style.css";
 // proxy
 import {TaskItemProxy} from '../../proxy/task-item-proxy';
 
+// utils
+import {fns} from "../../utils/fns";
+import {determineStatus} from "../../utils/determine-status";
+
 // type
 import type {ITask} from "../../interfaces/task.interface";
 import {ITaskList} from "../../interfaces/task-list.interface";
@@ -30,11 +34,13 @@ const TaskList: FC<ITaskList> = (
   const dispatch = useDispatch();
 
   const sendTaskToBoard = (boardId: number, task?: ITask) => {
-    const newTask = {
+    let newTask = {
       ...droppedTask,
       order: task ? task.order : 0,
       boardId
     };
+
+    newTask = determineStatus(newTask, boardId);
 
     withLocalState(newTask, () => dispatch(
       setMessageAction({
