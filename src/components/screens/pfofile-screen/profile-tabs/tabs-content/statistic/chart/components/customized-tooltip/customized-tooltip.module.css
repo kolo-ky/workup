@@ -1,0 +1,26 @@
+.root {
+  padding: 10px;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  -webkit-box-shadow: -1px 3px 8px 0px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: -1px 3px 8px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: -1px 3px 8px 0px rgba(34, 60, 80, 0.2);
+  border-radius: 5px;
+}
+
+.rootItem {
+  margin-bottom: 5px;
+}
+
+.rootItem--createdAt {
+  color: #6a6a6a;
+}
+.rootItem--processAt {
+  color: #2f80ed;
+}
+.rootItem--doneAt {
+  color: #65b670;
+}
